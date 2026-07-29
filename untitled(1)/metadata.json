@@ -1,0 +1,6 @@
+{
+  "name": "Levernasia Bar & Club",
+  "description": "Premier nightlife, luxury dining, and cocktail lounge experience at Gardens Galleria Mall, Noida with live DJ nights, gourmet food, signature libations, and instant VIP WhatsApp table reservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
