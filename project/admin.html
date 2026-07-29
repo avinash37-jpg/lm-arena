@@ -20,7 +20,7 @@
     }
   }
 </script>
-<link rel="stylesheet" href="admin/admin.css?v=2">
+<link rel="stylesheet" href="admin/admin.css?v=3">
 </head>
 <body class="bg-zinc-950 text-zinc-100">
 
@@ -34,16 +34,19 @@
       <h1 class="text-2xl font-black uppercase tracking-wider">Admin Panel</h1>
       <p class="text-zinc-400 text-sm mt-2">Levernasia Bar &amp; Club — Content Manager</p>
     </div>
-    <form id="login-form" class="space-y-4" autocomplete="current-password">
+    <form id="login-form" class="space-y-4" autocomplete="current-password" onsubmit="return false;" novalidate>
       <div>
         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2" for="pw">Password</label>
         <input id="pw" name="password" type="password" required autofocus autocomplete="current-password" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="Enter admin password">
+        <p id="caps-warning" class="hidden text-amber-400 text-xs mt-1">⚠ Caps Lock is ON</p>
       </div>
       <div id="login-error" class="hidden text-red-400 text-sm bg-red-950/40 border border-red-600/40 rounded-lg p-3"></div>
       <div id="login-throttle" class="hidden text-amber-400 text-sm bg-amber-950/40 border border-amber-600/40 rounded-lg p-3"></div>
-      <button id="login-submit" type="submit" class="w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold uppercase tracking-wider rounded-lg hover:from-red-500 hover:to-rose-500 transition-all">Sign In</button>
+      <div id="login-status" class="hidden text-zinc-400 text-xs bg-zinc-900 border border-zinc-800 rounded-lg p-3"></div>
+      <button id="login-submit" type="button" class="w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold uppercase tracking-wider rounded-lg hover:from-red-500 hover:to-rose-500 transition-all">Sign In</button>
       <p class="text-zinc-500 text-xs text-center mt-4">Default password: <code class="bg-zinc-900 px-2 py-0.5 rounded text-red-400">admin123</code> — change after first login.</p>
       <p class="text-zinc-600 text-[11px] text-center mt-2">Tip: rename this file to something private (e.g. <code class="bg-zinc-900 px-1 rounded">manage-secret.html</code>) for better security.</p>
+      <p class="text-zinc-700 text-[10px] text-center mt-3">v2.1 · If login doesn't respond, hard refresh (Ctrl+Shift+R) to clear old cache.</p>
     </form>
   </div>
 </div>
@@ -353,8 +356,8 @@
 
 <div id="toast" class="fixed bottom-6 right-6 z-[300] px-6 py-3 rounded-lg shadow-lg hidden text-sm font-bold text-white"></div>
 
-<script src="js/data.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
-<script src="admin/admin.js?v=2"></script>
+<script src="js/data.js?v=3"></script>
+<script src="js/app.js?v=3"></script>
+<script src="admin/admin.js?v=3"></script>
 </body>
 </html>
