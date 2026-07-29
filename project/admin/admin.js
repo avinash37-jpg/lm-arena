@@ -12,6 +12,9 @@ const $ = (s,el=document)=>el.querySelector(s);
 const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
 
 /* ---------- Init & Auth ---------- */
+let _loginAttempts = 0;
+let _lockUntil = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
   if (sessionStorage.getItem(AUTH_KEY) === '1') {
     showDashboard();
@@ -21,21 +24,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $('#login-form').addEventListener('submit', async e => {
     e.preventDefault();
+    const err=$('#login-error'); err.classList.add('hidden');
+    const thrEl=$('#login-throttle');
+    const now=Date.now();
+    if(now<_lockUntil){
+      const s=Math.ceil((_lockUntil-now)/1000);
+      thrEl.textContent='Too many attempts. Try again in '+s+'s.'; thrEl.classList.remove('hidden');
+      return;
+    }
+    const submitBtn = $('#login-submit');
+    if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Signing in…';}
     const pw = new FormData(e.target).get('password');
     const d = getData();
     try {
       const hash = await sha256(pw);
       if (hash === d.site.adminPasswordHash) {
+        _loginAttempts=0;
         sessionStorage.setItem(AUTH_KEY,'1');
         showDashboard();
       } else {
-        const err=$('#login-error');
-        err.textContent='ERROR: Incorrect password.'; err.classList.remove('hidden');
+        _loginAttempts++;
+        err.textContent='ERROR: Incorrect password. ('+_loginAttempts+'/5)'; err.classList.remove('hidden');
+        if(_loginAttempts>=5){
+          _lockUntil=Date.now()+30*1000; // 30s lockout
+          _loginAttempts=0;
+          thrEl.textContent='Too many failed attempts. Locked for 30 seconds.'; thrEl.classList.remove('hidden');
+        }
       }
-    } catch(err){
-      console.error('Hash error', err);
-      const er=$('#login-error');
-      er.textContent='Login error: '+err.message; er.classList.remove('hidden');
+    } catch(err0){
+      console.error('Hash error', err0);
+      err.textContent='Login error: '+err0.message; err.classList.remove('hidden');
+    } finally {
+      if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Sign In';}
+      e.target.reset();
+      const pwf=$('#pw'); if(pwf)pwf.focus();
     }
   });
   $('#logout-btn').addEventListener('click', () => {

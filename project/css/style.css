@@ -1,5 +1,10 @@
 /* ====== Reset & Base ====== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+@supports(padding:max(0px)){html{scroll-padding-top:max(110px,env(safe-area-inset-top))}}
+.skip-link{position:absolute;top:-40px;left:8px;background:#dc2626;color:#fff;padding:8px 14px;font-weight:700;border-radius:0 0 8px 8px;z-index:500;text-decoration:none;font-size:13px}
+.skip-link:focus{top:0}
+::selection{background:#dc2626;color:#fff}
 html{scroll-behavior:smooth}
 body{font-family:'Open Sans',ui-sans-serif,system-ui,sans-serif;background:#000;color:#e5e7eb;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat',ui-sans-serif,system-ui,sans-serif;font-weight:800}
