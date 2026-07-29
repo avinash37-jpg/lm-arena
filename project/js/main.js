@@ -36,7 +36,7 @@ function renderSiteInfo() {
   ['topbar-phone','mobile-phone-btn','floating-call','contact-phone-link','footer-call'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.href=tel;
   });
-  $('#topbar-phone').textContent = '📞 VIP Reservation: ' + (s.phone||'');
+  $('#topbar-phone').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="inline mr-1"><path d="M2 3a1 1 0 0 1 1-1h2.153a1 1 0 0 1 .986.836l.74 4.435a1 1 0 0 1-.54 1.06l-1.548.773a11.037 11.037 0 0 0 6.105 6.105l.774-1.548a1 1 0 0 1 1.059-.54l4.435.74a1 1 0 0 1 .836.986V17a1 1 0 0 1-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg> VIP Reservation: ' + (s.phone||'');
   $('#contact-phone-link').textContent = s.phone || '';
   $('#footer-phone').textContent = s.phone || '';
   ['nav-logo','mobile-logo','footer-logo'].forEach(id=>{ const el=document.getElementById(id); if(el) el.src = s.logoUrl; });
@@ -81,12 +81,17 @@ function renderAbout(){
   $('#about-p1').textContent=a.paragraph1||'';
   $('#about-p2').textContent=a.paragraph2||'';
   $('#about-image').src=DATA.aboutImage||'';
-  const icons={Utensils:'🍽️',GlassWater:'🍸',Music:'🎵',Sparkles:'✨'};
+  const iconMap = {
+    Utensils: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>`,
+    GlassWater: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 22H8.8a2 2 0 0 1-2-1.79L5 3h14l-1.81 17.21A2 2 0 0 1 15.2 22Z"/><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"/></svg>`,
+    Music: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+    Sparkles: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>`
+  };
   const g=$('#features-grid');g.innerHTML='';
   (DATA.features||[]).forEach(f=>{
     const d=document.createElement('div');
     d.className='feature-card';
-    d.innerHTML=`<div class="feature-icon text-white text-2xl">${icons[f.icon]||'✨'}</div><h3 class="feature-title">${f.title}</h3><p class="feature-desc">${f.desc}</p>`;
+    d.innerHTML=`<div class="feature-icon text-white">${iconMap[f.icon]||iconMap.Sparkles}</div><h3 class="feature-title">${f.title}</h3><p class="feature-desc">${f.desc}</p>`;
     g.appendChild(d);
   });
 }
@@ -215,7 +220,10 @@ function renderEvents(){
   const g=$('#events-grid');g.innerHTML='';
   (DATA.events||[]).forEach(ev=>{
     const d=document.createElement('div');d.className='event-card';
-    d.innerHTML=`<div class="event-img"><img src="${ev.image}" referrerpolicy="no-referrer"><div class="event-meta"><span>📅 ${ev.date}</span><span>🕐 ${ev.time}</span></div></div><div class="event-body"><h4 class="event-title">🎵 ${ev.title}</h4><p class="event-desc">${ev.desc}</p><div class="event-cta"><a href="#reservation">RSVP Now →</a></div></div>`;
+    const calSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>';
+    const clockSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+    const musicSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+    d.innerHTML=`<div class="event-img"><img src="${ev.image}" referrerpolicy="no-referrer"><div class="event-meta"><span>${calSvg} ${ev.date}</span><span>${clockSvg} ${ev.time}</span></div></div><div class="event-body"><h4 class="event-title">${musicSvg} ${ev.title}</h4><p class="event-desc">${ev.desc}</p><div class="event-cta"><a href="#reservation">RSVP Now →</a></div></div>`;
     g.appendChild(d);
   });
 }
@@ -257,7 +265,7 @@ function renderInstagram(){
   posts.forEach(p=>{
     const d=document.createElement('div');d.className='insta-card';
     const embedUrl=`https://www.instagram.com/${p.type==='reel'?'reel':'p'}/${p.shortcode}/embed`;
-    d.innerHTML=`<div class="insta-header"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span><span class="text-xs font-bold tracking-wider text-zinc-300 uppercase">levernasia_la</span></div><span class="insta-badge">${p.type}</span></div><div class="insta-embed"><iframe src="${embedUrl}" class="w-full h-[440px] border-none" loading="lazy" referrerpolicy="no-referrer"></iframe></div><a href="https://www.instagram.com/${p.type==='reel'?'reel':'p'}/${p.shortcode}/" target="_blank" class="insta-cta">📷 Open on Instagram ↗</a>`;
+    d.innerHTML=`<div class="insta-header"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span><span class="text-xs font-bold tracking-wider text-zinc-300 uppercase">levernasia_la</span></div><span class="insta-badge">${p.type}</span></div><div class="insta-embed"><iframe src="${embedUrl}" class="w-full h-[440px] border-none" loading="lazy" referrerpolicy="no-referrer"></iframe></div><a href="https://www.instagram.com/${p.type==='reel'?'reel':'p'}/${p.shortcode}/" target="_blank" rel="noopener" class="insta-cta">Instagram &#8599;</a>`;
     g.appendChild(d);
   });
 }
@@ -268,17 +276,17 @@ function setupForms(){
     e.preventDefault();
     const fd=new FormData(e.target);
     const o=Object.fromEntries(fd.entries());
-    const msg=`Hello Levernasia! 🥂 I would like to reserve a VIP Table:\n• Name: ${o.name||'N/A'}\n• Phone: ${o.phone||'N/A'}\n• Date: ${o.date||'Upcoming'}\n• Guests: ${o.guests}\n• Requests: ${o.requests||'None'}\n\nPlease confirm.`;
+    const msg=`Hello Levernasia! I would like to reserve a VIP Table:\n• Name: ${o.name||'N/A'}\n• Phone: ${o.phone||'N/A'}\n• Date: ${o.date||'Upcoming'}\n• Guests: ${o.guests}\n• Requests: ${o.requests||'None'}\n\nPlease confirm table availability.`;
     window.open(waLink(DATA.site.whatsapp,msg),'_blank');
-    toast('✅ Opening WhatsApp to confirm your reservation…');
+    toast('Opening WhatsApp to confirm your reservation...');
     e.target.reset();
   });
   $('#subscribe-form').addEventListener('submit',e=>{
     e.preventDefault();
     const email=new FormData(e.target).get('email');
-    const msg=`Hello Levernasia! 🥂 I joined the VIP Guestlist with email: ${email}. Please send me offers!`;
+    const msg=`Hello Levernasia! I joined the VIP Guestlist with email: ${email}. Please send me exclusive table offers and DJ lineup updates!`;
     window.open(waLink(DATA.site.whatsapp,msg),'_blank');
-    toast('🎉 Opening WhatsApp…');
+    toast('Opening WhatsApp to confirm your VIP signup...');
     e.target.reset();
   });
   $('#print-menu-btn').addEventListener('click',printMenu);
@@ -305,8 +313,19 @@ function setupNav(){
     else{top.classList.remove('hidden');nav.classList.remove('py-2.5');nav.classList.add('py-3.5');}
   });
   const btn=$('#mobile-menu-btn'),menu=$('#mobile-menu');
-  btn.addEventListener('click',()=>menu.classList.toggle('hidden'));
-  $$('.mobile-close').forEach(a=>a.addEventListener('click',()=>menu.classList.add('hidden')));
+  const iconMenu=$('#icon-menu'), iconClose=$('#icon-close');
+  if(btn){
+    btn.addEventListener('click',()=>{
+      menu.classList.toggle('hidden');
+      if(iconMenu) iconMenu.classList.toggle('hidden');
+      if(iconClose) iconClose.classList.toggle('hidden');
+    });
+  }
+  $$('.mobile-close').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.add('hidden');
+    if(iconMenu) iconMenu.classList.remove('hidden');
+    if(iconClose) iconClose.classList.add('hidden');
+  }));
 }
 
 /* Inactivity modal */

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showDashboard();
     } else {
       const err=$('#login-error');
-      err.textContent='❌ Incorrect password.'; err.classList.remove('hidden');
+      err.textContent='ERROR:  Incorrect password.'; err.classList.remove('hidden');
     }
   });
   $('#logout-btn').addEventListener('click', () => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#export-btn').addEventListener('click', exportData);
   $('#clear-draft-btn').addEventListener('click',()=>{
     clearLocalDraft();
-    toast('✅ Local draft cleared. Refresh to see published site.','ok');
+    toast('OK:  Local draft cleared. Refresh to see published site.','ok');
   });
 
   setupForms();
@@ -139,7 +139,7 @@ $('#save-site').addEventListener('click',()=>{
     address:$('#f-addr').value,hoursMonThu:$('#f-h1').value,hoursFriSat:$('#f-h2').value,hoursSun:$('#f-h3').value,
     logoUrl:$('#f-logo').value,instagram:$('#f-insta').value,instagramDj:$('#f-instadj').value,mapsEmbed:$('#f-maps').value
   };
-  persist(); toast('✅ Site settings saved');
+  persist(); toast('OK:  Site settings saved');
 });
 
 /* ---------- Hero ---------- */
@@ -190,7 +190,7 @@ $('#a-img-upload').addEventListener('change',e=>handleImageUpload(e.target.files
 $('#save-about').addEventListener('click',()=>{
   DATA.about={headline:$('#a-h1').value,headlineHighlight:$('#a-h2').value,paragraph1:$('#a-p1').value,paragraph2:$('#a-p2').value};
   DATA.aboutImage=$('#a-img').value;
-  persist();toast('✅ About saved');
+  persist();toast('OK:  About saved');
 });
 
 /* ---------- Gallery ---------- */
@@ -426,11 +426,11 @@ $('#save-insta').addEventListener('click',()=>{persist();toast('Instagram saved'
 $('#change-pw').addEventListener('click',async()=>{
   const np=$('#np').value,np2=$('#np2').value,m=$('#pw-msg');
   m.classList.add('hidden');
-  if(np!==np2){m.textContent='❌ Passwords do not match.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
-  if(np.length<4){m.textContent='❌ Password must be at least 4 characters.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
+  if(np!==np2){m.textContent='ERROR:  Passwords do not match.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
+  if(np.length<4){m.textContent='ERROR:  Password must be at least 4 characters.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
   DATA.site.adminPasswordHash = await sha256(np);
   persist();
-  m.textContent='✅ Password updated. Remember to publish to make it permanent.';
+  m.textContent='OK:  Password updated. Remember to publish to make it permanent.';
   m.className='text-sm rounded-lg p-3 bg-emerald-950/40 border border-emerald-600/40 text-emerald-300';
   m.classList.remove('hidden');
   $('#np').value='';$('#np2').value='';
@@ -442,7 +442,7 @@ function exportData(){
   DATA = { ...DATA, site:{...DATA.site}};
   const file = exportDataFile(DATA);
   downloadText('data.js', file);
-  toast('✅ data.js downloaded — upload to Hostinger /js/ folder to go live.','ok');
+  toast('OK:  data.js downloaded — upload to Hostinger /js/ folder to go live.','ok');
 }
 
 /* ---------- Helpers ---------- */

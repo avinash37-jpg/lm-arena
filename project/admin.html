@@ -6,6 +6,17 @@
 <title>Levernasia — Admin Panel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { brand: { red:'#dc2626', rose:'#e11d48', dark:'#09090b' } },
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+      }
+    }
+  }
+</script>
 <link rel="stylesheet" href="admin/admin.css">
 </head>
 <body class="bg-zinc-950 text-zinc-100">
@@ -14,7 +25,7 @@
 <div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
   <div class="w-full max-w-md bg-black border border-red-600/40 rounded-2xl p-8 shadow-[0_0_40px_rgba(220,38,38,.3)]">
     <div class="text-center mb-8">
-      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center mx-auto mb-4 text-2xl">🔐</div>
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center mx-auto mb-4 text-2xl">Admin</div>
       <h1 class="text-2xl font-black uppercase tracking-wider">Admin Panel</h1>
       <p class="text-zinc-400 text-sm mt-2">Levernasia Bar &amp; Club — Content Manager</p>
     </div>
@@ -34,30 +45,30 @@
   <aside class="sidebar w-64 bg-black border-r border-red-600/30 fixed h-screen overflow-y-auto flex flex-col z-30">
     <div class="p-6 border-b border-red-600/20">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center">🍸</div>
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center">[Drink]</div>
         <div><div class="font-black uppercase text-sm">Levernasia</div><div class="text-[10px] text-zinc-500 uppercase tracking-wider">Admin Panel</div></div>
       </div>
     </div>
     <nav class="flex-1 p-4 space-y-1" id="admin-nav">
-      <button data-tab="dashboard" class="nav-btn active">📊 Dashboard</button>
-      <button data-tab="site" class="nav-btn">⚙️ Site Settings</button>
-      <button data-tab="hero" class="nav-btn">🖼️ Hero Slider</button>
-      <button data-tab="about" class="nav-btn">📝 About &amp; Features</button>
-      <button data-tab="gallery" class="nav-btn">🖼️ Gallery</button>
-      <button data-tab="menu" class="nav-btn">🍽️ Food Menu</button>
-      <button data-tab="drinks" class="nav-btn">🍸 Drinks Menu</button>
-      <button data-tab="events" class="nav-btn">🎵 Events</button>
-      <button data-tab="videos" class="nav-btn">🎬 Videos</button>
-      <button data-tab="reviews" class="nav-btn">⭐ Reviews</button>
-      <button data-tab="instagram" class="nav-btn">📷 Instagram</button>
-      <button data-tab="password" class="nav-btn">🔑 Change Password</button>
-      <button data-tab="publish" class="nav-btn">🚀 Publish / Export</button>
+      <button data-tab="dashboard" class="nav-btn active">[Dash] Dashboard</button>
+      <button data-tab="site" class="nav-btn">[Set] Site Settings</button>
+      <button data-tab="hero" class="nav-btn">[Img] Hero Slider</button>
+      <button data-tab="about" class="nav-btn">[Edit] About &amp; Features</button>
+      <button data-tab="gallery" class="nav-btn">[Img] Gallery</button>
+      <button data-tab="menu" class="nav-btn">[Food] Food Menu</button>
+      <button data-tab="drinks" class="nav-btn">[Drink] Drinks Menu</button>
+      <button data-tab="events" class="nav-btn">[Events] Events</button>
+      <button data-tab="videos" class="nav-btn">[Video] Videos</button>
+      <button data-tab="reviews" class="nav-btn">[Star] Reviews</button>
+      <button data-tab="instagram" class="nav-btn">[IG] Instagram</button>
+      <button data-tab="password" class="nav-btn">[Key] Change Password</button>
+      <button data-tab="publish" class="nav-btn">[Go] Publish / Export</button>
     </nav>
     <div class="p-4 border-t border-red-600/20 space-y-2">
-      <a href="index.html" target="_blank" class="block text-center py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm hover:bg-zinc-800">🌐 View Website</a>
-      <button id="preview-btn" class="w-full py-2.5 bg-emerald-950 border border-emerald-600/40 text-emerald-400 rounded-lg text-sm font-bold hover:bg-emerald-900">👁 Preview Changes</button>
-      <button id="reset-btn" class="w-full py-2.5 bg-amber-950 border border-amber-600/40 text-amber-400 rounded-lg text-sm font-bold hover:bg-amber-900">↺ Reset Draft</button>
-      <button id="logout-btn" class="w-full py-2.5 bg-red-950 border border-red-600/40 text-red-400 rounded-lg text-sm font-bold hover:bg-red-900">🚪 Logout</button>
+      <a href="index.html" target="_blank" class="block text-center py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm hover:bg-zinc-800">[Web] View Website</a>
+      <button id="preview-btn" class="w-full py-2.5 bg-emerald-950 border border-emerald-600/40 text-emerald-400 rounded-lg text-sm font-bold hover:bg-emerald-900">[Eye] Preview Changes</button>
+      <button id="reset-btn" class="w-full py-2.5 bg-amber-950 border border-amber-600/40 text-amber-400 rounded-lg text-sm font-bold hover:bg-amber-900">[Reset] Reset Draft</button>
+      <button id="logout-btn" class="w-full py-2.5 bg-red-950 border border-red-600/40 text-red-400 rounded-lg text-sm font-bold hover:bg-red-900">[Out] Logout</button>
     </div>
   </aside>
 
@@ -71,7 +82,7 @@
     </header>
 
     <div id="draft-info" class="hidden mb-6 bg-amber-950/40 border border-amber-600/40 rounded-xl p-4 text-amber-200 text-sm">
-      <strong>⚠️ Unsaved draft in progress.</strong> Changes show only on this device until you publish. <button id="view-draft" class="underline ml-2 font-bold">View draft</button>
+      <strong>! Unsaved draft in progress.</strong> Changes show only on this device until you publish. <button id="view-draft" class="underline ml-2 font-bold">View draft</button>
     </div>
 
     <!-- DASHBOARD TAB -->
@@ -81,12 +92,12 @@
         <div class="bg-black border border-red-600/30 rounded-2xl p-6">
           <h3 class="text-lg font-bold uppercase mb-4">Quick Actions</h3>
           <div class="grid grid-cols-2 gap-3">
-            <button class="quick-btn" data-go="menu">➕ Add Menu Item</button>
-            <button class="quick-btn" data-go="events">➕ Add Event</button>
-            <button class="quick-btn" data-go="gallery">🖼️ Add Gallery Image</button>
+            <button class="quick-btn" data-go="menu">+ Add Menu Item</button>
+            <button class="quick-btn" data-go="events">+ Add Event</button>
+            <button class="quick-btn" data-go="gallery">[Img] Add Gallery Image</button>
             <button class="quick-btn" data-go="site">📞 Update Contact Info</button>
-            <button class="quick-btn" data-go="hero">🎬 Change Hero Photos</button>
-            <button class="quick-btn" data-go="publish">🚀 Publish to Live</button>
+            <button class="quick-btn" data-go="hero">[Video] Change Hero Photos</button>
+            <button class="quick-btn" data-go="publish">[Go] Publish to Live</button>
           </div>
         </div>
         <div class="bg-black border border-red-600/30 rounded-2xl p-6">
@@ -94,8 +105,8 @@
           <ol class="text-zinc-400 text-sm space-y-3 list-decimal list-inside">
             <li>Edit any section on the left (menu, gallery, events, etc.).</li>
             <li>Changes are saved to your browser automatically (local draft).</li>
-            <li>Click <strong class="text-emerald-400">👁 Preview Changes</strong> to see them on the website.</li>
-            <li>When ready, go to <strong class="text-red-400">🚀 Publish / Export</strong> to download the new data file.</li>
+            <li>Click <strong class="text-emerald-400">[Eye] Preview Changes</strong> to see them on the website.</li>
+            <li>When ready, go to <strong class="text-red-400">[Go] Publish / Export</strong> to download the new data file.</li>
             <li>Upload that file to Hostinger File Manager, replacing <code class="bg-zinc-900 px-1 rounded">js/data.js</code>.</li>
           </ol>
         </div>
@@ -123,7 +134,7 @@
           <div class="md:col-span-2"><label class="admin-label">Google Maps Embed URL</label><input id="f-maps" class="admin-input"></div>
         </div>
         <p class="text-xs text-zinc-500">Tip: In Google Maps, click "Share" → "Embed a map" → copy the <code class="bg-zinc-900 px-1 rounded">src="…"</code> URL.</p>
-        <button id="save-site" class="admin-btn-primary">💾 Save</button>
+        <button id="save-site" class="admin-btn-primary">Save Save</button>
       </div>
     </section>
 
@@ -134,8 +145,8 @@
         <p class="text-zinc-500 text-sm mb-4">Paste image URLs or upload images from your device. Uploaded images are saved in your draft and will be embedded in the export.</p>
         <div class="flex gap-2 mb-6 flex-wrap">
           <input id="hero-url-input" class="admin-input flex-1 min-w-[200px]" placeholder="Paste image URL here…">
-          <button id="hero-add-url" class="admin-btn-primary whitespace-nowrap">➕ Add URL</button>
-          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">📁 Upload<input type="file" id="hero-upload" accept="image/*" class="hidden"></label>
+          <button id="hero-add-url" class="admin-btn-primary whitespace-nowrap">+ Add URL</button>
+          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">[File] Upload<input type="file" id="hero-upload" accept="image/*" class="hidden"></label>
         </div>
         <div id="hero-list" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
       </div>
@@ -150,11 +161,11 @@
         <div><label class="admin-label">Paragraph 1</label><textarea id="a-p1" rows="3" class="admin-input"></textarea></div>
         <div><label class="admin-label">Paragraph 2</label><textarea id="a-p2" rows="3" class="admin-input"></textarea></div>
         <div><label class="admin-label">About Image URL</label><input id="a-img" class="admin-input"></div>
-        <label class="admin-btn-secondary cursor-pointer inline-block">📁 Upload About Image<input type="file" id="a-img-upload" accept="image/*" class="hidden"></label>
+        <label class="admin-btn-secondary cursor-pointer inline-block">[File] Upload About Image<input type="file" id="a-img-upload" accept="image/*" class="hidden"></label>
         <h4 class="text-md font-bold uppercase mt-6 mb-2">Feature Cards</h4>
         <div id="features-list" class="space-y-3"></div>
-        <button id="add-feature" class="admin-btn-secondary">➕ Add Feature</button>
-        <button id="save-about" class="admin-btn-primary block">💾 Save</button>
+        <button id="add-feature" class="admin-btn-secondary">+ Add Feature</button>
+        <button id="save-about" class="admin-btn-primary block">Save Save</button>
       </div>
     </section>
 
@@ -165,13 +176,13 @@
         <div class="flex flex-wrap gap-2 mb-6" id="gallery-cat-tabs"></div>
         <div class="flex gap-2 mb-6 flex-wrap">
           <input id="gallery-url-input" class="admin-input flex-1 min-w-[200px]" placeholder="Image URL…">
-          <button id="gallery-add-url" class="admin-btn-primary whitespace-nowrap">➕ Add URL</button>
-          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">📁 Upload<input type="file" id="gallery-upload" accept="image/*" class="hidden"></label>
+          <button id="gallery-add-url" class="admin-btn-primary whitespace-nowrap">+ Add URL</button>
+          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">[File] Upload<input type="file" id="gallery-upload" accept="image/*" class="hidden"></label>
         </div>
         <div id="gallery-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
         <div class="mt-6 flex gap-2 flex-wrap">
-          <button id="add-gallery-cat" class="admin-btn-secondary">➕ New Category</button>
-          <button id="del-gallery-cat" class="admin-btn-danger">🗑 Delete Current Category</button>
+          <button id="add-gallery-cat" class="admin-btn-secondary">+ New Category</button>
+          <button id="del-gallery-cat" class="admin-btn-danger">[Del] Delete Current Category</button>
         </div>
       </div>
     </section>
@@ -181,17 +192,17 @@
       <div class="bg-black border border-red-600/30 rounded-2xl p-6">
         <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
           <div><h3 class="text-lg font-bold uppercase mb-2">Food Menu Manager</h3><p class="text-zinc-500 text-sm">Add/edit categories and menu items.</p></div>
-          <div class="flex gap-2 flex-wrap"><input id="new-cat-name" class="admin-input" placeholder="New category name…"><button id="add-menu-cat" class="admin-btn-secondary">➕ Category</button></div>
+          <div class="flex gap-2 flex-wrap"><input id="new-cat-name" class="admin-input" placeholder="New category name…"><button id="add-menu-cat" class="admin-btn-secondary">+ Category</button></div>
         </div>
         <div class="flex flex-wrap gap-2 mb-6" id="menu-cat-tabs"></div>
         <div id="menu-items-list" class="space-y-3"></div>
-        <button id="add-menu-item" class="admin-btn-primary mt-4">➕ Add Menu Item</button>
+        <button id="add-menu-item" class="admin-btn-primary mt-4">+ Add Menu Item</button>
 
         <h4 class="text-md font-bold uppercase mt-10 mb-3">Food Carousel Images (featured dishes)</h4>
         <div class="flex gap-2 mb-4 flex-wrap">
           <input id="food-img-url" class="admin-input flex-1" placeholder="Image URL…">
-          <button id="add-food-img" class="admin-btn-primary">➕ Add URL</button>
-          <label class="admin-btn-secondary cursor-pointer">📁 Upload<input type="file" id="food-upload" accept="image/*" class="hidden"></label>
+          <button id="add-food-img" class="admin-btn-primary">+ Add URL</button>
+          <label class="admin-btn-secondary cursor-pointer">[File] Upload<input type="file" id="food-upload" accept="image/*" class="hidden"></label>
         </div>
         <div id="food-images-list" class="grid grid-cols-2 md:grid-cols-5 gap-3"></div>
       </div>
@@ -202,17 +213,17 @@
       <div class="bg-black border border-red-600/30 rounded-2xl p-6">
         <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
           <div><h3 class="text-lg font-bold uppercase mb-2">Drinks Menu Manager</h3><p class="text-zinc-500 text-sm">Cocktails, mocktails, spirits.</p></div>
-          <div class="flex gap-2 flex-wrap"><input id="new-dcat-name" class="admin-input" placeholder="New category name…"><button id="add-drinks-cat" class="admin-btn-secondary">➕ Category</button></div>
+          <div class="flex gap-2 flex-wrap"><input id="new-dcat-name" class="admin-input" placeholder="New category name…"><button id="add-drinks-cat" class="admin-btn-secondary">+ Category</button></div>
         </div>
         <div class="flex flex-wrap gap-2 mb-6" id="drinks-cat-tabs"></div>
         <div id="drinks-items-list" class="space-y-3"></div>
-        <button id="add-drinks-item" class="admin-btn-primary mt-4">➕ Add Drink</button>
+        <button id="add-drinks-item" class="admin-btn-primary mt-4">+ Add Drink</button>
 
         <h4 class="text-md font-bold uppercase mt-10 mb-3">Drinks Carousel Images</h4>
         <div class="flex gap-2 mb-4 flex-wrap">
           <input id="drink-img-url" class="admin-input flex-1" placeholder="Drink image URL…">
-          <button id="add-drink-img" class="admin-btn-primary">➕ Add URL</button>
-          <label class="admin-btn-secondary cursor-pointer">📁 Upload<input type="file" id="drink-upload" accept="image/*" class="hidden"></label>
+          <button id="add-drink-img" class="admin-btn-primary">+ Add URL</button>
+          <label class="admin-btn-secondary cursor-pointer">[File] Upload<input type="file" id="drink-upload" accept="image/*" class="hidden"></label>
         </div>
         <div id="drink-images-list" class="grid grid-cols-2 md:grid-cols-5 gap-3"></div>
       </div>
@@ -223,7 +234,7 @@
       <div class="bg-black border border-red-600/30 rounded-2xl p-6">
         <h3 class="text-lg font-bold uppercase mb-4">Events Manager</h3>
         <div id="events-list" class="space-y-4"></div>
-        <button id="add-event" class="admin-btn-primary mt-4">➕ Add Event</button>
+        <button id="add-event" class="admin-btn-primary mt-4">+ Add Event</button>
       </div>
     </section>
 
@@ -233,7 +244,7 @@
         <h3 class="text-lg font-bold uppercase mb-4">Video Gallery</h3>
         <p class="text-zinc-500 text-sm mb-4">Add a YouTube or Google Drive embed URL and a thumbnail image.</p>
         <div class="space-y-3" id="videos-list"></div>
-        <button id="add-video" class="admin-btn-primary mt-4">➕ Add Video</button>
+        <button id="add-video" class="admin-btn-primary mt-4">+ Add Video</button>
       </div>
     </section>
 
@@ -242,7 +253,7 @@
       <div class="bg-black border border-red-600/30 rounded-2xl p-6">
         <h3 class="text-lg font-bold uppercase mb-4">Customer Reviews</h3>
         <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-        <button id="add-review" class="admin-btn-primary mt-4">➕ Add Review</button>
+        <button id="add-review" class="admin-btn-primary mt-4">+ Add Review</button>
       </div>
     </section>
 
@@ -253,11 +264,11 @@
         <p class="text-zinc-500 text-sm mb-6">Add Instagram shortcodes (from post/reel URLs). Example: for <code class="bg-zinc-900 px-1 rounded">https://www.instagram.com/reel/Da7hsOvP2fR/</code> the shortcode is <code class="bg-zinc-900 px-1 rounded text-red-400">Da7hsOvP2fR</code> and type is <code class="bg-zinc-900 px-1 rounded text-red-400">reel</code>.</p>
         <h4 class="font-bold uppercase text-sm mb-2">@levernasia_la</h4>
         <div id="insta-list" class="space-y-3 mb-6"></div>
-        <button id="add-insta" class="admin-btn-secondary mb-8">➕ Add Levernasia Post</button>
+        <button id="add-insta" class="admin-btn-secondary mb-8">+ Add Levernasia Post</button>
         <h4 class="font-bold uppercase text-sm mb-2">@djmishi_</h4>
         <div id="insta-dj-list" class="space-y-3"></div>
-        <button id="add-insta-dj" class="admin-btn-secondary mt-4">➕ Add DJ Post</button>
-        <button id="save-insta" class="admin-btn-primary mt-6 block">💾 Save</button>
+        <button id="add-insta-dj" class="admin-btn-secondary mt-4">+ Add DJ Post</button>
+        <button id="save-insta" class="admin-btn-primary mt-6 block">Save Save</button>
       </div>
     </section>
 
@@ -269,18 +280,18 @@
         <div><label class="admin-label">New Password</label><input id="np" type="password" class="admin-input"></div>
         <div><label class="admin-label">Confirm New Password</label><input id="np2" type="password" class="admin-input"></div>
         <div id="pw-msg" class="hidden text-sm rounded-lg p-3"></div>
-        <button id="change-pw" class="admin-btn-primary">🔑 Update Password</button>
+        <button id="change-pw" class="admin-btn-primary">[Key] Update Password</button>
       </div>
     </section>
 
     <!-- PUBLISH -->
     <section id="tab-publish" class="tab-panel hidden">
       <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-3xl space-y-6">
-        <h3 class="text-lg font-bold uppercase">🚀 Publish Your Website</h3>
+        <h3 class="text-lg font-bold uppercase">[Go] Publish Your Website</h3>
         <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
           <h4 class="font-bold uppercase text-sm mb-3 text-red-400">Step 1 — Download the updated data file</h4>
           <p class="text-zinc-400 text-sm mb-4">Clicking below will download a new <code class="bg-zinc-900 px-1 rounded">data.js</code> file containing all your edits, images, and settings.</p>
-          <button id="export-btn" class="admin-btn-primary text-base px-6 py-3">⬇ Download data.js</button>
+          <button id="export-btn" class="admin-btn-primary text-base px-6 py-3">Download Download data.js</button>
         </div>
         <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
           <h4 class="font-bold uppercase text-sm mb-3 text-emerald-400">Step 2 — Upload to Hostinger</h4>
@@ -296,10 +307,10 @@
         <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
           <h4 class="font-bold uppercase text-sm mb-3 text-amber-400">Step 3 — Clear local draft</h4>
           <p class="text-zinc-400 text-sm mb-4">After publishing, click below to clear your browser's draft so future edits start from the live version.</p>
-          <button id="clear-draft-btn" class="admin-btn-secondary">🧹 Clear Local Draft</button>
+          <button id="clear-draft-btn" class="admin-btn-secondary">Clear Clear Local Draft</button>
         </div>
         <div class="bg-red-950/40 border border-red-600/40 rounded-xl p-5 text-red-200 text-sm">
-          <strong>⚠️ Backup reminder:</strong> Before uploading, you may want to download the existing data.js from Hostinger as a backup.
+          <strong>! Backup reminder:</strong> Before uploading, you may want to download the existing data.js from Hostinger as a backup.
         </div>
       </div>
     </section>
