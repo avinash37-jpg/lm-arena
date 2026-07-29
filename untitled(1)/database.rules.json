@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "games": {
+      "$gameId": {
+        ".read": true,
+        "gameInfo": { ".write": "auth != null" },
+        "settings": { ".write": "!data.exists() && auth != null" },
+        "players": { ".write": "auth != null" },
+        "turn": { ".write": "auth != null" },
+        "diceControl": {
+          "requestRoll": { ".write": "auth != null" },
+          "currentRoll": {
+            ".write": "auth != null",
+            ".validate": "newData.child('value').isNumber() && newData.child('value').val() >= 1 && newData.child('value').val() <= 6"
+          }
+        },
+        "controllers": {
+          "$controllerId": {
+            ".write": "auth != null",
+            ".validate": "!newData.exists() || newData.hasChildren(['deviceName', 'connectedAt'])"
+          }
+        },
+        "history": { ".write": "auth != null" }
+      }
+    },
+    "admins": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).exists()",
+      ".write": "auth != null && root.child('admins').child(auth.uid).child('role').val() == 'super_admin'"
+    }
+  }
+}
