@@ -26,6 +26,22 @@ window.SITE_DATA = {
     adminPasswordHash: '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9'
     // ↑ SHA-256 hash of default password "admin123". Admin can change from the panel.
   },
+  // QuickPic — customers scan this QR code at the club to view/download their photos.
+  // qrImage: image of the QR code (upload from admin or paste a URL).
+  // galleryUrl: link that opens when QR is scanned (e.g. Google Photos / Drive / QuickPic gallery / your photographer's page).
+  quickpic: {
+    enabled: true,
+    title: 'Scan & Download Your Pics',
+    subtitle: 'Point your camera at the QR code to instantly view and download your photos taken tonight.',
+    qrImage: 'https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=20&data=' + encodeURIComponent('https://photos.app.goo.gl/levernasia'),
+    galleryUrl: 'https://photos.app.goo.gl/levernasia',
+    instructions: [
+      'Open your phone camera & scan the QR code on the table stand / screen.',
+      'Tap the pop-up link to open your photo gallery.',
+      'Find your photo and download it to your phone instantly.',
+      'Tag @levernasia_la when you post — we love to repost!'
+    ]
+  },
   heroImages: [
     'https://i.ibb.co/1BYn38w/DSC00643.jpg',
     'https://i.ibb.co/0R5F9CBt/DSC00645.jpg',

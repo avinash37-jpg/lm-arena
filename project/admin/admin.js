@@ -7,7 +7,6 @@ let currentTab = 'dashboard';
 let currentGalleryCat;
 let currentMenuCat;
 let currentDrinksCat;
-let uploadedBlobs = {}; // in-memory (lost on refresh for now) – base64 data URLs for uploaded images
 
 const $ = (s,el=document)=>el.querySelector(s);
 const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
@@ -24,13 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const pw = new FormData(e.target).get('password');
     const d = getData();
-    const hash = await sha256(pw);
-    if (hash === d.site.adminPasswordHash) {
-      sessionStorage.setItem(AUTH_KEY,'1');
-      showDashboard();
-    } else {
-      const err=$('#login-error');
-      err.textContent='ERROR:  Incorrect password.'; err.classList.remove('hidden');
+    try {
+      const hash = await sha256(pw);
+      if (hash === d.site.adminPasswordHash) {
+        sessionStorage.setItem(AUTH_KEY,'1');
+        showDashboard();
+      } else {
+        const err=$('#login-error');
+        err.textContent='ERROR: Incorrect password.'; err.classList.remove('hidden');
+      }
+    } catch(err){
+      console.error('Hash error', err);
+      const er=$('#login-error');
+      er.textContent='Login error: '+err.message; er.classList.remove('hidden');
     }
   });
   $('#logout-btn').addEventListener('click', () => {
@@ -41,24 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
   $$('#admin-nav .nav-btn').forEach(b => b.addEventListener('click', ()=> switchTab(b.dataset.tab)));
   $$('.quick-btn').forEach(b => b.addEventListener('click', ()=> switchTab(b.dataset.go)));
 
-  // Actions
-  $('#preview-btn').addEventListener('click',()=>{
-    window.open('index.html','_blank');
-  });
-  $('#view-draft').addEventListener('click',()=>{
-    window.open('index.html','_blank');
-  });
+  $('#preview-btn').addEventListener('click',()=>{ window.open('index.html','_blank'); });
+  $('#view-draft').addEventListener('click',()=>{ window.open('index.html','_blank'); });
   $('#reset-btn').addEventListener('click',()=>{
     if(confirm('Clear all local edits and revert to the published version?')){
-      clearLocalDraft();
-      DATA = getData();
-      location.reload();
+      clearLocalDraft(); DATA = getData(); location.reload();
     }
   });
   $('#export-btn').addEventListener('click', exportData);
   $('#clear-draft-btn').addEventListener('click',()=>{
     clearLocalDraft();
-    toast('OK:  Local draft cleared. Refresh to see published site.','ok');
+    toast('OK: Local draft cleared. Refresh to see published site.','ok');
   });
 
   setupForms();
@@ -71,7 +69,7 @@ function showDashboard(){
   if (hasLocalDraft()) $('#draft-info').classList.remove('hidden');
   else $('#draft-info').classList.add('hidden');
   switchTab('dashboard');
-  fillSiteForm(); fillAboutForm();
+  fillSiteForm(); fillAboutForm(); fillQuickPicForm();
   renderHeroAdmin(); renderGalleryAdmin(); renderMenuAdmin(); renderDrinksAdmin();
   renderEventsAdmin(); renderVideosAdmin(); renderReviewsAdmin(); renderInstaAdmin();
   $('#save-status').textContent = hasLocalDraft() ? '● Unsaved draft' : '● All changes saved locally';
@@ -82,7 +80,7 @@ function switchTab(tab){
   $$('#admin-nav .nav-btn').forEach(x=>x.classList.toggle('active', x.dataset.tab===tab));
   $$('.tab-panel').forEach(p=>p.classList.add('hidden'));
   const panel = $('#tab-'+tab); if(panel) panel.classList.remove('hidden');
-  const titles={dashboard:'Dashboard',site:'Site Settings',hero:'Hero Slider',about:'About Section',gallery:'Gallery Manager',menu:'Food Menu',drinks:'Drinks Menu',events:'Events',videos:'Video Gallery',reviews:'Customer Reviews',instagram:'Instagram Posts',password:'Change Password',publish:'Publish / Export'};
+  const titles={dashboard:'Dashboard',site:'Site Settings',hero:'Hero Slider',about:'About Section',gallery:'Gallery Manager',menu:'Food Menu',drinks:'Drinks Menu',events:'Events',videos:'Video Gallery',reviews:'Customer Reviews',instagram:'Instagram Posts',quickpic:'QuickPic QR Code',password:'Change Password',publish:'Publish / Export'};
   $('#page-title').textContent=titles[tab]||'Dashboard';
   if(tab==='dashboard') renderDashboard();
 }
@@ -96,7 +94,6 @@ function toast(msg,type='ok'){
   t._t=setTimeout(()=>t.classList.add('hidden'),2500);
 }
 function persist(){
-  // Strip uploaded blobs? no — keep them as data URLs inside the data. Save.
   saveLocalDraft(DATA);
   $('#draft-info').classList.remove('hidden');
   $('#save-status').textContent = '● Draft saved at '+new Date().toLocaleTimeString();
@@ -139,7 +136,7 @@ $('#save-site').addEventListener('click',()=>{
     address:$('#f-addr').value,hoursMonThu:$('#f-h1').value,hoursFriSat:$('#f-h2').value,hoursSun:$('#f-h3').value,
     logoUrl:$('#f-logo').value,instagram:$('#f-insta').value,instagramDj:$('#f-instadj').value,mapsEmbed:$('#f-maps').value
   };
-  persist(); toast('OK:  Site settings saved');
+  persist(); toast('OK: Site settings saved');
 });
 
 /* ---------- Hero ---------- */
@@ -175,8 +172,8 @@ function renderFeatures(){
     const d=document.createElement('div');
     d.className='grid grid-cols-1 md:grid-cols-4 gap-2 bg-zinc-900 p-3 rounded-lg border border-zinc-800';
     d.innerHTML=`
-      <input class="admin-input md:col-span-1" data-f="title" placeholder="Title" value="${f.title||''}">
-      <input class="admin-input md:col-span-2" data-f="desc" placeholder="Description" value="${f.desc||''}">
+      <input class="admin-input md:col-span-1" data-f="title" placeholder="Title" value="${esc(f.title||'')}">
+      <input class="admin-input md:col-span-2" data-f="desc" placeholder="Description" value="${esc(f.desc||'')}">
       <button class="admin-btn-danger" data-i="${i}">Delete</button>`;
     list.appendChild(d);
     d.querySelector('.admin-btn-danger').onclick=()=>{DATA.features.splice(i,1);renderFeatures();persist();};
@@ -190,7 +187,43 @@ $('#a-img-upload').addEventListener('change',e=>handleImageUpload(e.target.files
 $('#save-about').addEventListener('click',()=>{
   DATA.about={headline:$('#a-h1').value,headlineHighlight:$('#a-h2').value,paragraph1:$('#a-p1').value,paragraph2:$('#a-p2').value};
   DATA.aboutImage=$('#a-img').value;
-  persist();toast('OK:  About saved');
+  persist();toast('OK: About saved');
+});
+
+/* ---------- QuickPic ---------- */
+function fillQuickPicForm(){
+  const q=DATA.quickpic||{};
+  $('#qp-enabled').checked = q.enabled !== false;
+  $('#qp-title').value = q.title||'Scan & Download Your Pics';
+  $('#qp-sub').value = q.subtitle||'Point your camera at the QR code to instantly view and download your photos taken tonight.';
+  $('#qp-img-url').value = q.qrImage||'';
+  $('#qp-url').value = q.galleryUrl||'';
+  $('#qp-instructions').value = (q.instructions||[]).join('\n');
+  const pv=$('#qp-preview'); if(pv){pv.src=q.qrImage||'';}
+}
+$('#qp-save').addEventListener('click',()=>{
+  DATA.quickpic={
+    enabled: $('#qp-enabled').checked,
+    title: $('#qp-title').value,
+    subtitle: $('#qp-sub').value,
+    qrImage: $('#qp-img-url').value,
+    galleryUrl: $('#qp-url').value,
+    instructions: $('#qp-instructions').value.split('\n').map(s=>s.trim()).filter(Boolean)
+  };
+  persist();
+  const pv=$('#qp-preview'); if(pv)pv.src=DATA.quickpic.qrImage||'';
+  toast('OK: QuickPic settings saved');
+});
+$('#qp-upload').addEventListener('change',e=>handleImageUpload(e.target.files[0],dataUrl=>{
+  DATA.quickpic=DATA.quickpic||{};
+  DATA.quickpic.qrImage=dataUrl;
+  $('#qp-img-url').value=dataUrl;
+  const pv=$('#qp-preview'); if(pv)pv.src=dataUrl;
+  persist();
+  toast('QR image uploaded');
+}));
+$('#qp-img-url').addEventListener('input',e=>{
+  const pv=$('#qp-preview'); if(pv)pv.src=e.target.value;
 });
 
 /* ---------- Gallery ---------- */
@@ -264,7 +297,6 @@ function renderMenuAdmin(){
       DATA.menu[currentMenuCat][i][k]=v;persist();
     }));
   });
-  // food carousel
   const fl=$('#food-images-list');fl.innerHTML='';
   (DATA.foodCarousel||[]).forEach((src,i)=>{
     const d=document.createElement('div');d.className='thumb-card';
@@ -404,12 +436,8 @@ function instaRow(item,list,i,which){
   const d=document.createElement('div');d.className='insta-row';
   d.innerHTML=`<input data-f="shortcode" value="${esc(item.shortcode)}" placeholder="Shortcode"><select data-f="type" class="admin-input"><option value="post" ${item.type==='post'?'selected':''}>post</option><option value="reel" ${item.type==='reel'?'selected':''}>reel</option></select><button class="admin-btn-danger">✕</button>`;
   list.appendChild(d);
-  d.querySelector('.admin-btn-danger').onclick=()=>{
-    DATA.instagramPosts[which].splice(i,1);renderInstaAdmin();persist();
-  };
-  d.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',()=>{
-    DATA.instagramPosts[which][i][el.dataset.f]=el.value;persist();
-  }));
+  d.querySelector('.admin-btn-danger').onclick=()=>{ DATA.instagramPosts[which].splice(i,1);renderInstaAdmin();persist(); };
+  d.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',()=>{ DATA.instagramPosts[which][i][el.dataset.f]=el.value;persist(); }));
 }
 function renderInstaAdmin(){
   DATA.instagramPosts=DATA.instagramPosts||{levernasia:[],djmishi:[]};
@@ -426,32 +454,35 @@ $('#save-insta').addEventListener('click',()=>{persist();toast('Instagram saved'
 $('#change-pw').addEventListener('click',async()=>{
   const np=$('#np').value,np2=$('#np2').value,m=$('#pw-msg');
   m.classList.add('hidden');
-  if(np!==np2){m.textContent='ERROR:  Passwords do not match.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
-  if(np.length<4){m.textContent='ERROR:  Password must be at least 4 characters.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
-  DATA.site.adminPasswordHash = await sha256(np);
-  persist();
-  m.textContent='OK:  Password updated. Remember to publish to make it permanent.';
-  m.className='text-sm rounded-lg p-3 bg-emerald-950/40 border border-emerald-600/40 text-emerald-300';
-  m.classList.remove('hidden');
-  $('#np').value='';$('#np2').value='';
+  if(np!==np2){m.textContent='ERROR: Passwords do not match.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
+  if(np.length<4){m.textContent='ERROR: Password must be at least 4 characters.';m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');return;}
+  try{
+    DATA.site.adminPasswordHash = await sha256(np);
+    persist();
+    m.textContent='OK: Password updated. Remember to publish to make it permanent.';
+    m.className='text-sm rounded-lg p-3 bg-emerald-950/40 border border-emerald-600/40 text-emerald-300';
+    m.classList.remove('hidden');
+    $('#np').value='';$('#np2').value='';
+  }catch(err){
+    m.textContent='Hash error: '+err.message;m.className='text-sm rounded-lg p-3 bg-red-950/40 border border-red-600/40 text-red-300';m.classList.remove('hidden');
+  }
 });
 
 /* ---------- Export / Publish ---------- */
 function exportData(){
-  // Make sure latest field values are persisted
-  DATA = { ...DATA, site:{...DATA.site}};
+  DATA = { ...DATA, site:{...DATA.site}, quickpic:{...DATA.quickpic} };
   const file = exportDataFile(DATA);
   downloadText('data.js', file);
-  toast('OK:  data.js downloaded — upload to Hostinger /js/ folder to go live.','ok');
+  toast('OK: data.js downloaded — upload to Hostinger /js/ folder to go live.','ok');
 }
 
 /* ---------- Helpers ---------- */
-function esc(s){return (s||'').toString().replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){return (s==null?'':String(s)).replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function setupForms(){}
 function handleImageUpload(file, cb){
   if(!file) return;
   if(!file.type.startsWith('image/')){toast('Please choose an image','err');return;}
-  if(file.size>4*1024*1024) toast('⚠ Image >4MB — will still be embedded but file will be large.','err');
+  if(file.size>4*1024*1024) toast('Warning: Image >4MB — will still be embedded but file will be large.','err');
   const r=new FileReader();
   r.onload=e=>cb(e.target.result);
   r.readAsDataURL(file);

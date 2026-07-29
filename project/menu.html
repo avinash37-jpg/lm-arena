@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Levernasia — Menu · Food & Drinks | Noida</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/YBLLZ47d/24442826-a344-4187-b351-8734223a49bb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { brand: { red:'#dc2626', rose:'#e11d48', dark:'#09090b' } },
+        fontFamily: {
+          sans: ['"Open Sans"','system-ui','sans-serif'],
+          display: ['Montserrat','system-ui','sans-serif'],
+          serif: ['"Playfair Display"','Georgia','serif']
+        }
+      }
+    }
+  };
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-gray-200 font-sans antialiased">
+
+<div id="site-header-slot"></div>
+
+<!-- Page Hero -->
+<section id="menu-hero" class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://i.ibb.co/4wn1GJVX/Lv-4.png" alt="Food">
+  </div>
+  <div class="page-hero-content">
+    <div class="page-hero-kicker"><span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Menu · Food & Drinks</div>
+    <h1 class="page-hero-title">Culinary &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-600">Mixology</span></h1>
+    <p class="page-hero-sub">Gourmet global cuisine, artisanal cocktails & premium spirits — crafted for your night out.</p>
+    <div class="sub-nav">
+      <a href="#food-section">Food Menu</a>
+      <a href="#drinks-section">Drinks Menu</a>
+      <a href="events.html">Events & Media →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Food Section -->
+<section id="food-section" class="section-pad bg-zinc-950 relative border-t border-red-600/30 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="section-kicker">Culinary Arts</h2>
+      <h3 class="section-title">Our Gourmet Menu</h3>
+      <p class="section-sub">From signature combos to artisanal Neapolitan pizzas and chef specials.</p>
+    </div>
+
+    <div class="relative mb-16 max-w-full overflow-hidden">
+      <div class="flex justify-between items-center mb-6 max-w-6xl mx-auto flex-wrap gap-3">
+        <h4 class="text-xl font-bold uppercase text-white tracking-wider font-display">Featured Culinary Signatures</h4>
+        <div class="carousel-controls">
+          <button id="food-prev" class="carousel-btn"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M15 19l-7-7 7-7"/></svg></button>
+          <button id="food-next" class="carousel-btn"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="overflow-hidden max-w-6xl mx-auto" id="food-viewport">
+        <div class="flex transition-transform duration-500 -ml-4" id="food-track"></div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-red-600/20 pb-6 mb-8 mt-12">
+      <div id="menu-cats" class="flex flex-wrap justify-center gap-2 sm:gap-3"></div>
+      <div class="menu-filter-bar">
+        <button data-filter="All" class="active">All</button>
+        <button data-filter="Veg">Veg</button>
+        <button data-filter="Non-Veg">Non-Veg</button>
+      </div>
+    </div>
+    <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 min-h-[200px]"></div>
+    <div class="text-center">
+      <button id="print-menu-btn" class="print-btn">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        Download / Print PDF Menu
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Drinks Section -->
+<section id="drinks-section" class="section-pad bg-black relative border-t border-red-600/30 overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 blur-[140px] rounded-full pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="section-kicker">Mixology</h2>
+      <h3 class="section-title">Signature Libations</h3>
+      <p class="section-sub">Artisanal cocktails, premium spirits, and crafted mocktails.</p>
+    </div>
+    <div class="relative mb-16 overflow-hidden">
+      <div class="flex justify-end mb-4 gap-2">
+        <button id="drink-prev" class="carousel-btn"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M15 19l-7-7 7-7"/></svg></button>
+        <button id="drink-next" class="carousel-btn"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="overflow-hidden" id="drink-viewport">
+        <div class="flex transition-transform duration-500 -ml-4" id="drink-track"></div>
+      </div>
+    </div>
+    <div id="drinks-cats" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"></div>
+    <div id="drinks-items" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6"></div>
+    <div class="mt-14 text-center">
+      <a href="events.html" class="inline-flex items-center gap-2 px-8 py-4 bg-zinc-950/80 border border-red-600/50 text-red-400 font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-red-950/50 transition">
+        Check Events & DJ Nights →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Inactivity Modal -->
+<div id="inactivity-modal" class="fixed inset-0 z-[100] hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4">
+  <div class="w-full max-w-lg bg-zinc-950 border border-red-500/50 rounded-2xl shadow-[0_0_50px_rgba(220,38,38,0.3)] p-8 text-center relative">
+    <button onclick="document.getElementById('inactivity-modal').classList.add('hidden');document.getElementById('inactivity-modal').classList.remove('flex')" class="absolute top-4 right-4 text-zinc-500 hover:text-white">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="mx-auto w-16 h-16 bg-red-950/80 border border-red-500/40 rounded-full flex items-center justify-center text-red-500 mb-6 animate-pulse text-3xl">★</div>
+    <h2 class="text-3xl font-black text-white uppercase tracking-tight font-display mb-4">Hungry or Thirsty? <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-600">Order Now</span></h2>
+    <p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-8">Reserve a table and enjoy our signature food and drinks tonight.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="index.html#location" class="px-6 py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold uppercase tracking-wider text-sm rounded-lg shadow-[0_0_20px_rgba(220,38,38,0.5)]">Book a Table</a>
+      <button onclick="document.getElementById('inactivity-modal').classList.add('hidden');document.getElementById('inactivity-modal').classList.remove('flex')" class="px-6 py-3 bg-zinc-900 border border-red-500/30 text-white font-bold uppercase tracking-wider text-sm rounded-lg hover:bg-zinc-800">Keep Browsing</button>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer-slot"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/render.js"></script>
+<script>
+  window.__PAGE__='menu';
+  document.addEventListener('DOMContentLoaded', () => {
+    injectLayout('menu');
+    setupShared();
+    const DATA = getSiteData();
+    fillSiteInfo(DATA);
+    renderFoodCarousel(DATA);
+    renderDrinkCarousel(DATA);
+    renderMenu(DATA);
+    renderDrinks(DATA);
+    setupModals();
+  });
+</script>
+</body>
+</html>

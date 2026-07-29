@@ -1,97 +1,78 @@
-# 🍸 Levernasia Bar & Club — Website + Built-in Admin Panel
+# Levernasia Bar & Club — Static Website
 
-**100% static HTML/CSS/JS — no server required.** You can upload the entire folder directly to **Hostinger (or any static hosting)** and it works out of the box. The admin panel lives **inside** the website at `/admin.html` — no online admin, no backend, no database needed.
+A fully static HTML/CSS/JS website for **Levernasia Bar & Club** (Gardens Galleria Mall, Sector 38, Noida). Works out of the box on **Hostinger static hosting**, **Vercel**, **Netlify** or any plain web host — no Node.js / server required.
 
-## 📁 Files
+---
 
-```
-project/
-├── index.html        ← Public website (your client's site)
-├── admin.html        ← Admin panel (edit everything)
-├── css/style.css     ← Theme styles (dark/red luxury look)
-├── js/
-│   ├── data.js       ← ALL website content (text, images, menu, events, etc.)
-│   ├── app.js        ← Shared helpers
-│   └── main.js       ← Public site renderer
-├── admin/
-│   ├── admin.css     ← Admin panel styles
-│   └── admin.js      ← Admin panel logic
-├── uploads/          ← (optional) you can keep uploaded images here manually
-└── README.md
-```
+## 📁 Structure
 
-## 🚀 How to use
+The website is split into **3 pages** (as requested):
 
-### 1. Open locally
-Just open `index.html` in your browser by double-clicking it. No install needed.
+| File | Section | Contents |
+|---|---|---|
+| `index.html` | **About** | Hero, About, Experience (Gallery), Location & VIP reservation form |
+| `menu.html`  | **Menu**   | Food carousel, full food menu, drinks carousel, drinks menu, PDF print |
+| `events.html`| **Events & Media** | Events & DJs, QuickPic QR, Video Highlights, Instagram feed, Reviews |
 
-### 2. Log in to the admin
-Visit **`admin.html`** (open it in the browser too) and enter the password:
+Other files:
 
-```
-Default password: admin123
-```
+- `admin.html` — built-in admin panel (password: **admin123** — change after first login)
+- `css/style.css` — all custom styles
+- `js/data.js` — **the single content file** (this is what the admin edits/publishes)
+- `js/app.js` — shared helpers (data, SHA-256 login, header/footer injection, nav)
+- `js/render.js` — shared rendering (hero, about, gallery, menus, events, reviews, etc.)
+- `admin/admin.js` + `admin/admin.css` — admin panel logic & styles
 
-You can change the password from inside the admin panel (🔑 Change Password) after logging in.
+---
 
-### 3. Edit anything
-Inside admin you can change:
-- ⚙️ **Site Settings** — brand name, phone, WhatsApp, address, hours, logo, Instagram, Google Maps embed
-- 🖼️ **Hero Slider** — paste image URLs OR upload images from your computer
-- 📝 **About & Features** — headlines, paragraphs, about image, 3 feature cards (add/delete)
-- 🖼️ **Gallery** — add/remove categories, upload or paste images, delete
-- 🍽️ **Food Menu** — add/delete categories, add/edit/delete items, veg/non-veg toggle, price; manage food carousel too
-- 🍸 **Drinks Menu** — same as food, for cocktails/mocktails/spirits + drinks carousel
-- 🎵 **Events** — title, date, time, image, description
-- 🎬 **Videos** — YouTube/Google Drive embeds with thumbnails
-- ⭐ **Reviews** — customer testimonials
-- 📷 **Instagram** — shortcodes for @levernasia_la and @djmishi_
-- 🔑 **Password** — change admin password
+## 🚀 Deploying (Hostinger / Vercel / any static host)
 
-**Everything you edit auto-saves in your browser** (a "local draft"). To preview, click **👁 Preview Changes** — it opens the public site with your draft applied. You'll see an orange "unsaved draft" banner at the top of the site during preview.
+1. Upload **all** files/folders as-is to your web root (e.g. `public_html/` on Hostinger).
+2. Visit your domain — `index.html` loads automatically.
+3. Done. No build step, no npm install, no server.
 
-### 4. Publish to Hostinger (go live)
-When you're happy with the edits:
+---
 
-1. In admin, go to **🚀 Publish / Export**.
-2. Click **⬇ Download data.js**. You'll get a new `data.js` file containing **all** your edits (including uploaded images, which are embedded inside it).
-3. Log in to **Hostinger hPanel → File Manager**, open `public_html`, then open the `js/` folder.
-4. **Upload** the new `data.js`, replacing/overwriting the existing one.
-5. Open your website in an incognito tab to verify — changes are live! ✅
-6. Back in admin, click **🧹 Clear Local Draft** so future edits start from the live version.
+## 🔐 Admin Panel
 
-> 💡 Uploaded images from your computer are embedded directly inside `data.js` as data URLs. That means you don't need a separate upload folder on Hostinger — just the one file.
+- Go to `yourdomain.com/admin.html`
+- Default password: **admin123**
+- Edit any section, then click **[Go] Publish / Export → Download data.js**
+- Upload the downloaded `data.js` into the `js/` folder on your host (overwriting the existing one).
+- Your changes are live.
 
-## 🔐 Security note
+> **Security tip:** Rename `admin.html` to something private (e.g. `lv-secret-7428.html`) and change the default password from the "Change Password" tab before going live.
 
-Because the site is fully static, the admin "login" is a client-side password gate that prevents random visitors from opening the admin. For real production security on static hosting:
-- **Do NOT link to `admin.html`** from the public site (I've left a tiny "🔐 Admin" link in the footer for you; you can delete it by removing the line near the end of `index.html` that says `<a href="admin.html"...>`).
-- Rename `admin.html` to something hard-to-guess like `panel-levernasia-7829.html` and bookmark it.
-- Never share the admin URL publicly.
+> **Login bug fixed:** The admin login now works on plain HTTP, file:// and HTTPS — SHA-256 hashing has a built-in pure-JavaScript fallback so it doesn't require a "Secure Context" (which was why login failed on some hosts / when opened locally).
 
-## 🎨 Customizing look & feel
-- Colors, fonts, borders, shadows: edit `css/style.css` (and `admin/admin.css` for the admin panel).
-- Main color is `#dc2626` (crimson red) — search & replace with your preferred hex code across the CSS files to rebrand.
+---
 
-## 📱 Features of the public site
-- Full-screen rotating hero with CTAs
-- About with 3 feature cards & VIP hours
-- Filterable gallery (Ambiance/Crowd/Bar/Food) with lightbox
-- Food carousel + categorized food menu with Veg/Non-Veg filter + Print-to-PDF menu
-- Drinks carousel + categorized drinks menu
-- Event cards
-- Customer reviews
-- Video gallery (popup player)
-- Instagram embeds
-- WhatsApp-powered reservation form (guest fills form → WhatsApp opens pre-filled)
-- VIP guestlist signup
+## 📸 QuickPic QR (Customer Photo Downloads)
+
+From the admin panel → **[QR] QuickPic QR** tab:
+
+1. Generate a QR code pointing to your photo gallery (Google Photos album, Google Drive folder, QuickPic gallery, photographer's page, etc.). You can use any free QR generator online.
+2. Upload that QR image (or paste its URL) into the admin.
+3. Paste the gallery URL.
+4. Edit the 4 steps shown to customers.
+5. Save, then Publish/Export.
+
+A big QR card appears on the **Events & Media** page (`events.html#quickpic`). Customers scan it with their phone camera and instantly view/download their photos.
+
+If you don't want the section, uncheck "Show QuickPic" in the admin.
+
+---
+
+## 🎨 Features
+
+- Dark luxury crimson/red nightlife theme
+- Fully responsive (mobile, tablet, desktop)
+- Hero auto-slider, food & drink carousels, gallery with lightbox
+- WhatsApp-powered reservations (opens WhatsApp with prefilled message)
+- PDF menu print
+- Auto-showing reservation modal on inactivity
+- Floating call button + mobile bottom navigation
+- Instagram embed feed
 - Google Maps embed
-- Sticky nav (hides top-bar on scroll), mobile hamburger menu + bottom tab bar
-- Floating call button
-- Inactivity "reserve now" popup
-- Fully responsive (desktop / tablet / mobile)
-
-## ❓ Troubleshooting
-- **Edits don't show on the live site?** Make sure you replaced `js/data.js` (not `data.html` or another file) in Hostinger, then hard-refresh (Ctrl+F5).
-- **Forgot password?** Open `js/data.js` in a text editor, find `adminPasswordHash`, and replace the hash with `240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9` (that resets it to `admin123`).
-- **Images not loading?** External image hosts (ibb.co, iili.io, Google Drive) sometimes block hotlinking. Use the Upload button in admin instead — those are embedded directly.
+- All content editable from the admin — no coding needed
+- Tailwind CSS loaded from CDN + custom CSS

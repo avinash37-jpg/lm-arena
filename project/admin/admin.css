@@ -21,6 +21,8 @@ code{font-family:ui-monospace,monospace;font-size:.9em}
 .admin-input{width:100%;background:#18181b;border:1px solid #27272a;border-radius:8px;padding:10px 14px;color:#fff;font-size:14px;transition:all .2s}
 .admin-input:focus{border-color:#ef4444;outline:none;background:#0a0a0a}
 textarea.admin-input{resize:vertical;min-height:80px}
+#qp-preview-wrap{background:#fff;padding:10px}
+#qp-preview{max-width:100%;max-height:100%}
 
 .admin-btn-primary{background:linear-gradient(90deg,#dc2626,#e11d48);color:#fff;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(220,38,38,.3)}
 .admin-btn-primary:hover{background:linear-gradient(90deg,#ef4444,#f43f5e);box-shadow:0 6px 20px rgba(220,38,38,.5)}
