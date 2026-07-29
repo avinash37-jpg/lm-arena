@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Levernasia — Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin/admin.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+
+<!-- ========= LOGIN ========= -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-black border border-red-600/40 rounded-2xl p-8 shadow-[0_0_40px_rgba(220,38,38,.3)]">
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center mx-auto mb-4 text-2xl">🔐</div>
+      <h1 class="text-2xl font-black uppercase tracking-wider">Admin Panel</h1>
+      <p class="text-zinc-400 text-sm mt-2">Levernasia Bar &amp; Club — Content Manager</p>
+    </div>
+    <form id="login-form" class="space-y-4">
+      <div><label class="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Password</label>
+        <input name="password" type="password" required autofocus class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none" placeholder="Enter admin password">
+      </div>
+      <div id="login-error" class="hidden text-red-400 text-sm bg-red-950/40 border border-red-600/40 rounded-lg p-3"></div>
+      <button class="w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold uppercase tracking-wider rounded-lg hover:from-red-500 hover:to-rose-500 transition-all">Sign In</button>
+      <p class="text-zinc-500 text-xs text-center mt-4">Default password: <code class="bg-zinc-900 px-2 py-0.5 rounded text-red-400">admin123</code> — change after first login.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ========= DASHBOARD ========= -->
+<div id="dashboard" class="hidden min-h-screen">
+  <aside class="sidebar w-64 bg-black border-r border-red-600/30 fixed h-screen overflow-y-auto flex flex-col z-30">
+    <div class="p-6 border-b border-red-600/20">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-600 to-rose-700 flex items-center justify-center">🍸</div>
+        <div><div class="font-black uppercase text-sm">Levernasia</div><div class="text-[10px] text-zinc-500 uppercase tracking-wider">Admin Panel</div></div>
+      </div>
+    </div>
+    <nav class="flex-1 p-4 space-y-1" id="admin-nav">
+      <button data-tab="dashboard" class="nav-btn active">📊 Dashboard</button>
+      <button data-tab="site" class="nav-btn">⚙️ Site Settings</button>
+      <button data-tab="hero" class="nav-btn">🖼️ Hero Slider</button>
+      <button data-tab="about" class="nav-btn">📝 About &amp; Features</button>
+      <button data-tab="gallery" class="nav-btn">🖼️ Gallery</button>
+      <button data-tab="menu" class="nav-btn">🍽️ Food Menu</button>
+      <button data-tab="drinks" class="nav-btn">🍸 Drinks Menu</button>
+      <button data-tab="events" class="nav-btn">🎵 Events</button>
+      <button data-tab="videos" class="nav-btn">🎬 Videos</button>
+      <button data-tab="reviews" class="nav-btn">⭐ Reviews</button>
+      <button data-tab="instagram" class="nav-btn">📷 Instagram</button>
+      <button data-tab="password" class="nav-btn">🔑 Change Password</button>
+      <button data-tab="publish" class="nav-btn">🚀 Publish / Export</button>
+    </nav>
+    <div class="p-4 border-t border-red-600/20 space-y-2">
+      <a href="index.html" target="_blank" class="block text-center py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-sm hover:bg-zinc-800">🌐 View Website</a>
+      <button id="preview-btn" class="w-full py-2.5 bg-emerald-950 border border-emerald-600/40 text-emerald-400 rounded-lg text-sm font-bold hover:bg-emerald-900">👁 Preview Changes</button>
+      <button id="reset-btn" class="w-full py-2.5 bg-amber-950 border border-amber-600/40 text-amber-400 rounded-lg text-sm font-bold hover:bg-amber-900">↺ Reset Draft</button>
+      <button id="logout-btn" class="w-full py-2.5 bg-red-950 border border-red-600/40 text-red-400 rounded-lg text-sm font-bold hover:bg-red-900">🚪 Logout</button>
+    </div>
+  </aside>
+
+  <main class="lg:ml-64 p-4 md:p-8">
+    <header class="mb-8 flex items-center justify-between flex-wrap gap-4">
+      <div>
+        <h1 id="page-title" class="text-2xl md:text-3xl font-black uppercase">Dashboard</h1>
+        <p class="text-zinc-500 text-sm mt-1">Manage your website content in your browser — then click <strong>Publish</strong> to go live.</p>
+      </div>
+      <div id="save-status" class="text-xs text-zinc-500"></div>
+    </header>
+
+    <div id="draft-info" class="hidden mb-6 bg-amber-950/40 border border-amber-600/40 rounded-xl p-4 text-amber-200 text-sm">
+      <strong>⚠️ Unsaved draft in progress.</strong> Changes show only on this device until you publish. <button id="view-draft" class="underline ml-2 font-bold">View draft</button>
+    </div>
+
+    <!-- DASHBOARD TAB -->
+    <section id="tab-dashboard" class="tab-panel">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8" id="stats-grid"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+          <h3 class="text-lg font-bold uppercase mb-4">Quick Actions</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="quick-btn" data-go="menu">➕ Add Menu Item</button>
+            <button class="quick-btn" data-go="events">➕ Add Event</button>
+            <button class="quick-btn" data-go="gallery">🖼️ Add Gallery Image</button>
+            <button class="quick-btn" data-go="site">📞 Update Contact Info</button>
+            <button class="quick-btn" data-go="hero">🎬 Change Hero Photos</button>
+            <button class="quick-btn" data-go="publish">🚀 Publish to Live</button>
+          </div>
+        </div>
+        <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+          <h3 class="text-lg font-bold uppercase mb-4">How it works</h3>
+          <ol class="text-zinc-400 text-sm space-y-3 list-decimal list-inside">
+            <li>Edit any section on the left (menu, gallery, events, etc.).</li>
+            <li>Changes are saved to your browser automatically (local draft).</li>
+            <li>Click <strong class="text-emerald-400">👁 Preview Changes</strong> to see them on the website.</li>
+            <li>When ready, go to <strong class="text-red-400">🚀 Publish / Export</strong> to download the new data file.</li>
+            <li>Upload that file to Hostinger File Manager, replacing <code class="bg-zinc-900 px-1 rounded">js/data.js</code>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SITE -->
+    <section id="tab-site" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 space-y-4 max-w-3xl">
+        <h3 class="text-lg font-bold uppercase mb-2">Site Information</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div><label class="admin-label">Brand Name</label><input id="f-brand" class="admin-input"></div>
+          <div><label class="admin-label">Tagline</label><input id="f-tagline" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">Hero Subtitle</label><textarea id="f-sub" rows="2" class="admin-input"></textarea></div>
+          <div><label class="admin-label">Phone (display)</label><input id="f-phone" class="admin-input"></div>
+          <div><label class="admin-label">WhatsApp (with country code, no +)</label><input id="f-wa" class="admin-input" placeholder="917428964646"></div>
+          <div><label class="admin-label">Email</label><input id="f-email" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">Address</label><input id="f-addr" class="admin-input"></div>
+          <div><label class="admin-label">Hours Mon-Thu</label><input id="f-h1" class="admin-input"></div>
+          <div><label class="admin-label">Hours Fri-Sat</label><input id="f-h2" class="admin-input"></div>
+          <div><label class="admin-label">Hours Sunday</label><input id="f-h3" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">Logo URL</label><input id="f-logo" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">Instagram URL</label><input id="f-insta" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">DJ Instagram URL</label><input id="f-instadj" class="admin-input"></div>
+          <div class="md:col-span-2"><label class="admin-label">Google Maps Embed URL</label><input id="f-maps" class="admin-input"></div>
+        </div>
+        <p class="text-xs text-zinc-500">Tip: In Google Maps, click "Share" → "Embed a map" → copy the <code class="bg-zinc-900 px-1 rounded">src="…"</code> URL.</p>
+        <button id="save-site" class="admin-btn-primary">💾 Save</button>
+      </div>
+    </section>
+
+    <!-- HERO -->
+    <section id="tab-hero" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-5xl">
+        <h3 class="text-lg font-bold uppercase mb-4">Hero Background Images</h3>
+        <p class="text-zinc-500 text-sm mb-4">Paste image URLs or upload images from your device. Uploaded images are saved in your draft and will be embedded in the export.</p>
+        <div class="flex gap-2 mb-6 flex-wrap">
+          <input id="hero-url-input" class="admin-input flex-1 min-w-[200px]" placeholder="Paste image URL here…">
+          <button id="hero-add-url" class="admin-btn-primary whitespace-nowrap">➕ Add URL</button>
+          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">📁 Upload<input type="file" id="hero-upload" accept="image/*" class="hidden"></label>
+        </div>
+        <div id="hero-list" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="tab-about" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-3xl space-y-4">
+        <h3 class="text-lg font-bold uppercase mb-2">About Section</h3>
+        <div><label class="admin-label">Headline (line 1)</label><input id="a-h1" class="admin-input"></div>
+        <div><label class="admin-label">Headline Highlight (line 2)</label><input id="a-h2" class="admin-input"></div>
+        <div><label class="admin-label">Paragraph 1</label><textarea id="a-p1" rows="3" class="admin-input"></textarea></div>
+        <div><label class="admin-label">Paragraph 2</label><textarea id="a-p2" rows="3" class="admin-input"></textarea></div>
+        <div><label class="admin-label">About Image URL</label><input id="a-img" class="admin-input"></div>
+        <label class="admin-btn-secondary cursor-pointer inline-block">📁 Upload About Image<input type="file" id="a-img-upload" accept="image/*" class="hidden"></label>
+        <h4 class="text-md font-bold uppercase mt-6 mb-2">Feature Cards</h4>
+        <div id="features-list" class="space-y-3"></div>
+        <button id="add-feature" class="admin-btn-secondary">➕ Add Feature</button>
+        <button id="save-about" class="admin-btn-primary block">💾 Save</button>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="tab-gallery" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+        <h3 class="text-lg font-bold uppercase mb-4">Gallery Manager</h3>
+        <div class="flex flex-wrap gap-2 mb-6" id="gallery-cat-tabs"></div>
+        <div class="flex gap-2 mb-6 flex-wrap">
+          <input id="gallery-url-input" class="admin-input flex-1 min-w-[200px]" placeholder="Image URL…">
+          <button id="gallery-add-url" class="admin-btn-primary whitespace-nowrap">➕ Add URL</button>
+          <label class="admin-btn-secondary whitespace-nowrap cursor-pointer">📁 Upload<input type="file" id="gallery-upload" accept="image/*" class="hidden"></label>
+        </div>
+        <div id="gallery-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+        <div class="mt-6 flex gap-2 flex-wrap">
+          <button id="add-gallery-cat" class="admin-btn-secondary">➕ New Category</button>
+          <button id="del-gallery-cat" class="admin-btn-danger">🗑 Delete Current Category</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD MENU -->
+    <section id="tab-menu" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+        <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
+          <div><h3 class="text-lg font-bold uppercase mb-2">Food Menu Manager</h3><p class="text-zinc-500 text-sm">Add/edit categories and menu items.</p></div>
+          <div class="flex gap-2 flex-wrap"><input id="new-cat-name" class="admin-input" placeholder="New category name…"><button id="add-menu-cat" class="admin-btn-secondary">➕ Category</button></div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6" id="menu-cat-tabs"></div>
+        <div id="menu-items-list" class="space-y-3"></div>
+        <button id="add-menu-item" class="admin-btn-primary mt-4">➕ Add Menu Item</button>
+
+        <h4 class="text-md font-bold uppercase mt-10 mb-3">Food Carousel Images (featured dishes)</h4>
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <input id="food-img-url" class="admin-input flex-1" placeholder="Image URL…">
+          <button id="add-food-img" class="admin-btn-primary">➕ Add URL</button>
+          <label class="admin-btn-secondary cursor-pointer">📁 Upload<input type="file" id="food-upload" accept="image/*" class="hidden"></label>
+        </div>
+        <div id="food-images-list" class="grid grid-cols-2 md:grid-cols-5 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- DRINKS -->
+    <section id="tab-drinks" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+        <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
+          <div><h3 class="text-lg font-bold uppercase mb-2">Drinks Menu Manager</h3><p class="text-zinc-500 text-sm">Cocktails, mocktails, spirits.</p></div>
+          <div class="flex gap-2 flex-wrap"><input id="new-dcat-name" class="admin-input" placeholder="New category name…"><button id="add-drinks-cat" class="admin-btn-secondary">➕ Category</button></div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6" id="drinks-cat-tabs"></div>
+        <div id="drinks-items-list" class="space-y-3"></div>
+        <button id="add-drinks-item" class="admin-btn-primary mt-4">➕ Add Drink</button>
+
+        <h4 class="text-md font-bold uppercase mt-10 mb-3">Drinks Carousel Images</h4>
+        <div class="flex gap-2 mb-4 flex-wrap">
+          <input id="drink-img-url" class="admin-input flex-1" placeholder="Drink image URL…">
+          <button id="add-drink-img" class="admin-btn-primary">➕ Add URL</button>
+          <label class="admin-btn-secondary cursor-pointer">📁 Upload<input type="file" id="drink-upload" accept="image/*" class="hidden"></label>
+        </div>
+        <div id="drink-images-list" class="grid grid-cols-2 md:grid-cols-5 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="tab-events" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+        <h3 class="text-lg font-bold uppercase mb-4">Events Manager</h3>
+        <div id="events-list" class="space-y-4"></div>
+        <button id="add-event" class="admin-btn-primary mt-4">➕ Add Event</button>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="tab-videos" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-3xl">
+        <h3 class="text-lg font-bold uppercase mb-4">Video Gallery</h3>
+        <p class="text-zinc-500 text-sm mb-4">Add a YouTube or Google Drive embed URL and a thumbnail image.</p>
+        <div class="space-y-3" id="videos-list"></div>
+        <button id="add-video" class="admin-btn-primary mt-4">➕ Add Video</button>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="tab-reviews" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6">
+        <h3 class="text-lg font-bold uppercase mb-4">Customer Reviews</h3>
+        <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        <button id="add-review" class="admin-btn-primary mt-4">➕ Add Review</button>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section id="tab-instagram" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-3xl">
+        <h3 class="text-lg font-bold uppercase mb-4">Instagram Posts</h3>
+        <p class="text-zinc-500 text-sm mb-6">Add Instagram shortcodes (from post/reel URLs). Example: for <code class="bg-zinc-900 px-1 rounded">https://www.instagram.com/reel/Da7hsOvP2fR/</code> the shortcode is <code class="bg-zinc-900 px-1 rounded text-red-400">Da7hsOvP2fR</code> and type is <code class="bg-zinc-900 px-1 rounded text-red-400">reel</code>.</p>
+        <h4 class="font-bold uppercase text-sm mb-2">@levernasia_la</h4>
+        <div id="insta-list" class="space-y-3 mb-6"></div>
+        <button id="add-insta" class="admin-btn-secondary mb-8">➕ Add Levernasia Post</button>
+        <h4 class="font-bold uppercase text-sm mb-2">@djmishi_</h4>
+        <div id="insta-dj-list" class="space-y-3"></div>
+        <button id="add-insta-dj" class="admin-btn-secondary mt-4">➕ Add DJ Post</button>
+        <button id="save-insta" class="admin-btn-primary mt-6 block">💾 Save</button>
+      </div>
+    </section>
+
+    <!-- PASSWORD -->
+    <section id="tab-password" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-md space-y-4">
+        <h3 class="text-lg font-bold uppercase">Change Admin Password</h3>
+        <p class="text-zinc-500 text-sm">The password is stored as a hash inside <code class="bg-zinc-900 px-1 rounded">js/data.js</code>. After changing, publish the new data file to make it permanent.</p>
+        <div><label class="admin-label">New Password</label><input id="np" type="password" class="admin-input"></div>
+        <div><label class="admin-label">Confirm New Password</label><input id="np2" type="password" class="admin-input"></div>
+        <div id="pw-msg" class="hidden text-sm rounded-lg p-3"></div>
+        <button id="change-pw" class="admin-btn-primary">🔑 Update Password</button>
+      </div>
+    </section>
+
+    <!-- PUBLISH -->
+    <section id="tab-publish" class="tab-panel hidden">
+      <div class="bg-black border border-red-600/30 rounded-2xl p-6 max-w-3xl space-y-6">
+        <h3 class="text-lg font-bold uppercase">🚀 Publish Your Website</h3>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+          <h4 class="font-bold uppercase text-sm mb-3 text-red-400">Step 1 — Download the updated data file</h4>
+          <p class="text-zinc-400 text-sm mb-4">Clicking below will download a new <code class="bg-zinc-900 px-1 rounded">data.js</code> file containing all your edits, images, and settings.</p>
+          <button id="export-btn" class="admin-btn-primary text-base px-6 py-3">⬇ Download data.js</button>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+          <h4 class="font-bold uppercase text-sm mb-3 text-emerald-400">Step 2 — Upload to Hostinger</h4>
+          <ol class="text-zinc-400 text-sm space-y-2 list-decimal list-inside">
+            <li>Log in to <strong>Hostinger hPanel</strong>.</li>
+            <li>Open <strong>Files → File Manager</strong>.</li>
+            <li>Navigate to your website's root folder (<code class="bg-zinc-900 px-1 rounded">public_html</code>).</li>
+            <li>Open the <code class="bg-zinc-900 px-1 rounded">js/</code> folder.</li>
+            <li>Upload the downloaded <code class="bg-zinc-900 px-1 rounded">data.js</code>, replacing/overwriting the existing one.</li>
+            <li>Open your website in an incognito tab to confirm changes are live.</li>
+          </ol>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+          <h4 class="font-bold uppercase text-sm mb-3 text-amber-400">Step 3 — Clear local draft</h4>
+          <p class="text-zinc-400 text-sm mb-4">After publishing, click below to clear your browser's draft so future edits start from the live version.</p>
+          <button id="clear-draft-btn" class="admin-btn-secondary">🧹 Clear Local Draft</button>
+        </div>
+        <div class="bg-red-950/40 border border-red-600/40 rounded-xl p-5 text-red-200 text-sm">
+          <strong>⚠️ Backup reminder:</strong> Before uploading, you may want to download the existing data.js from Hostinger as a backup.
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="fixed bottom-6 right-6 z-[300] px-6 py-3 rounded-lg shadow-lg hidden text-sm font-bold text-white"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="admin/admin.js"></script>
+</body>
+</html>
