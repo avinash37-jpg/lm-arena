@@ -38,175 +38,176 @@ const businessInfo = {
    ADD NEW CARD SAMPLES HERE
    =====================================
    To add a card, copy any block below, give it a NEW unique id
-   (CC-016, CC-017 ...) and paste the direct image URL into `image`.
+   (CC-016, CC-017 ...) and save the card photo as
+   images/cards/CC-016.jpg  (filename = card ID).
    Optional: `download` — a separate high-quality file URL.
-   If `image` is left "" the site shows an elegant placeholder,
+   If an image file is missing the site shows an elegant placeholder,
    so nothing ever looks broken.
    ===================================== */
 const cardSamples = [
   {
     id: "CC-001",
-    title: "Royal Wedding Invitation",
-    category: "Wedding",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Royal Jharokha Wedding Card",
+    category: "Luxury",
+    image: "images/cards/CC-001.jpg",
     download: "",
     description:
-      "Elegant traditional wedding invitation with a rich, royal layout — perfect for grand celebrations.",
-    tags: ["Wedding", "Traditional", "Royal"],
+      "Lattice-cut jharokha style cover with an ornate gold oval frame and a regal bride-and-groom artwork, set against a floral lantern backdrop.",
+    tags: ["Wedding", "Royal", "Traditional", "Luxury", "Couple", "Lattice"],
     featured: true
   },
   {
     id: "CC-002",
-    title: "Elegant Floral Wedding Card",
-    category: "Wedding",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Vintage Rose Ganesha Card",
+    category: "Traditional",
+    image: "images/cards/CC-002.jpg",
     download: "",
     description:
-      "Soft floral artwork with graceful typography for a timeless wedding invitation.",
-    tags: ["Wedding", "Floral", "Elegant"],
+      "Ivory invitation wrapped in vintage peach and pink roses with a gold filigree border and a Ganesha emblem framed by a ring of flowers.",
+    tags: ["Wedding", "Traditional", "Floral", "Ganesha", "Roses"],
     featured: true
   },
   {
     id: "CC-003",
-    title: "Traditional Wedding Card",
-    category: "Traditional",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Gold Vine Minimal Invitation",
+    category: "Minimal",
+    image: "images/cards/CC-003.jpg",
     download: "",
     description:
-      "Classic Indian wedding card design with traditional motifs and warm tones.",
-    tags: ["Wedding", "Traditional", "Classic"],
-    featured: false
-  },
-  {
-    id: "CC-004",
-    title: "Premium Luxury Invitation",
-    category: "Luxury",
-    image: "", // PASTE CARD IMAGE URL HERE
-    download: "",
-    description:
-      "A premium luxury invitation with refined detailing for couples who want something special.",
-    tags: ["Wedding", "Luxury", "Premium"],
+      "A refined blush square card covered in fine gold-line floral vines with an antique metal Ganesha accent — understated and elegant.",
+    tags: ["Wedding", "Minimal", "Modern", "Gold", "Ganesha", "Elegant"],
     featured: true
   },
   {
-    id: "CC-005",
-    title: "Modern Minimal Wedding Card",
-    category: "Modern",
-    image: "", // PASTE CARD IMAGE URL HERE
+    id: "CC-004",
+    title: "Blossom Crest Wedding Card",
+    category: "Traditional",
+    image: "images/cards/CC-004.jpg",
     download: "",
     description:
-      "Clean, contemporary invitation design with minimal styling and modern typography.",
-    tags: ["Wedding", "Modern", "Minimal"],
+      "Soft beige card bordered with cream wildflowers and eucalyptus leaves, centred on a gold crest holding a Ganesha motif.",
+    tags: ["Wedding", "Floral", "Traditional", "Ganesha", "Pastel"],
     featured: false
   },
   {
-    id: "CC-006",
-    title: "Engagement Invitation Card",
-    category: "Engagement",
-    image: "", // PASTE CARD IMAGE URL HERE
+    id: "CC-005",
+    title: "Krishna Melody Wedding Card",
+    category: "Traditional",
+    image: "images/cards/CC-005.jpg",
     download: "",
     description:
-      "A graceful invitation designed for engagement and ring ceremonies.",
-    tags: ["Engagement", "Elegant", "Ceremony"],
+      "Powder-blue invitation featuring Krishna with his flute in rich gold foil detail, paired with a royal blue couple panel — serene and majestic.",
+    tags: ["Wedding", "Traditional", "Krishna", "Blue", "Gold Foil", "Royal"],
+    featured: true
+  },
+  {
+    id: "CC-006",
+    title: "Cherry Blossom Laser-Cut Card",
+    category: "Modern",
+    image: "images/cards/CC-006.jpg",
+    download: "",
+    description:
+      "Peach-pink laser-cut lattice card blooming with cherry blossoms and a ribbon-tied insert — a fresh, contemporary style.",
+    tags: ["Wedding", "Modern", "Floral", "Laser Cut", "Pink", "Pastel"],
     featured: false
   },
   {
     id: "CC-007",
-    title: "Royal Heritage Wedding Card",
+    title: "Royal Darbar Boxed Invitation",
     category: "Luxury",
-    image: "", // PASTE CARD IMAGE URL HERE
+    image: "images/cards/CC-007.jpg",
     download: "",
     description:
-      "Heritage-inspired royal design with ornate borders and a majestic feel.",
-    tags: ["Wedding", "Royal", "Luxury", "Traditional"],
+      "Sky-blue boxed invitation with a royal couple beneath a Mughal arch, flanked by caparisoned elephants and finished with a golden tassel.",
+    tags: ["Wedding", "Luxury", "Royal", "Boxed", "Elephants", "Tassel"],
     featured: true
   },
   {
     id: "CC-008",
-    title: "Reception Invitation Card",
-    category: "Reception",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Radha Krishna Clouds Invitation",
+    category: "Luxury",
+    image: "images/cards/CC-008.jpg",
     download: "",
     description:
-      "Beautiful reception invitation to welcome guests to your celebration.",
-    tags: ["Reception", "Wedding", "Elegant"],
+      "Dreamy blush card with Radha and Krishna rendered in gold foil above the clouds, with peacock pillars and a rose-wreathed monogram.",
+    tags: ["Wedding", "Luxury", "Radha Krishna", "Gold Foil", "Premium"],
     featured: false
   },
   {
     id: "CC-009",
-    title: "Classic Ivory Wedding Card",
-    category: "Wedding",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Pichwai Heritage Wedding Card",
+    category: "Luxury",
+    image: "images/cards/CC-009.jpg",
     download: "",
     description:
-      "Timeless ivory invitation with delicate accents — simple, warm and elegant.",
-    tags: ["Wedding", "Classic", "Ivory", "Minimal"],
+      "Museum-style pichwai artwork of Radha Krishna under golden temple arches with sacred cows — a heritage keepsake invitation.",
+    tags: ["Wedding", "Luxury", "Traditional", "Pichwai", "Radha Krishna", "Royal", "Heritage"],
     featured: false
   },
   {
     id: "CC-010",
-    title: "Designer Wedding Invitation",
-    category: "Modern",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Garden Ribbon Laser-Cut Card",
+    category: "Wedding",
+    image: "images/cards/CC-010.jpg",
     download: "",
     description:
-      "A designer invitation blending modern layout with festive Indian character.",
-    tags: ["Wedding", "Modern", "Designer"],
+      "Peach invitation with painted dahlias, gold-foiled laser-cut florals and a ribbon-bound insert with name cut-out panel — suits nikah, walima and reception invites.",
+    tags: ["Wedding", "Floral", "Laser Cut", "Ribbon", "Nikah", "Walima", "Reception"],
     featured: false
   },
   {
     id: "CC-011",
-    title: "Traditional Puja Invitation",
-    category: "Puja",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Pearl Leaf Elegance Card",
+    category: "Minimal",
+    image: "images/cards/CC-011.jpg",
     download: "",
     description:
-      "Auspicious invitation card designed for puja and religious ceremonies.",
-    tags: ["Puja", "Traditional", "Ceremony"],
+      "Ivory card with silvery-lilac leaf sprays, corner rose garlands and a jewelled Ganesha medallion — quietly luxurious.",
+    tags: ["Wedding", "Minimal", "Elegant", "Ganesha", "Pastel", "Ivory"],
     featured: false
   },
   {
     id: "CC-012",
-    title: "Golden Accent Wedding Card",
-    category: "Luxury",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Baraat Procession Invitation",
+    category: "Traditional",
+    image: "images/cards/CC-012.jpg",
     download: "",
     description:
-      "Warm golden accents over a premium base — festive yet sophisticated.",
-    tags: ["Wedding", "Luxury", "Gold"],
+      "A grand baraat procession with elephants and royal attendants around a white jaali balcony, crowned with a Ganesha medallion.",
+    tags: ["Wedding", "Traditional", "Royal", "Baraat", "Elephants", "Jaali"],
     featured: false
   },
   {
     id: "CC-013",
-    title: "Anniversary Celebration Card",
-    category: "Anniversary",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Royal Couple Portrait Card",
+    category: "Wedding",
+    image: "images/cards/CC-013.jpg",
     download: "",
     description:
-      "A charming invitation for anniversary celebrations and milestone moments.",
-    tags: ["Anniversary", "Celebration", "Elegant"],
+      "Elegant mauve-toned portrait of a royal couple framed by palace arches, roses and a gold Ganesha crest.",
+    tags: ["Wedding", "Royal", "Couple", "Traditional", "Elegant"],
     featured: false
   },
   {
     id: "CC-014",
-    title: "Birthday Invitation Card",
-    category: "Birthday",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Golden Emboss Classic Card",
+    category: "Traditional",
+    image: "images/cards/CC-014.jpg",
     download: "",
     description:
-      "A cheerful, well-designed invitation for birthday parties and celebrations.",
-    tags: ["Birthday", "Celebration", "Party"],
+      "Peach card with embossed texture, golden cross-jaal pattern, foiled floral corners and a black-and-gold calligraphy medallion — a timeless classic for weddings, nikah and walima.",
+    tags: ["Wedding", "Traditional", "Classic", "Gold", "Emboss", "Nikah", "Walima"],
     featured: false
   },
   {
     id: "CC-015",
-    title: "Premium Invitation Suite",
-    category: "Luxury",
-    image: "", // PASTE CARD IMAGE URL HERE
+    title: "Shubh Aarambh Radha Krishna Card",
+    category: "Traditional",
+    image: "images/cards/CC-015.jpg",
     download: "",
     description:
-      "A complete premium invitation style for couples who want their card to make an impression.",
-    tags: ["Wedding", "Luxury", "Premium", "Suite"],
+      "Vibrant sunset-orange invitation pairing a blessing Ganesha with a beautifully painted Radha Krishna — festive and auspicious.",
+    tags: ["Wedding", "Traditional", "Radha Krishna", "Ganesha", "Vibrant", "Orange"],
     featured: false
   }
 ];
@@ -236,17 +237,17 @@ const cardCategories = [
    `alt` is used for accessibility & SEO.
    ===================================== */
 const galleryImages = [
-  { image: "", alt: "Chandan Cards & Wedding Planner shop front in Sakchi, Jamshedpur" },
-  { image: "", alt: "Wedding card display inside Chandan Cards, Sakchi" },
-  { image: "", alt: "Collection of wedding invitation cards at Chandan Cards" },
-  { image: "", alt: "Premium invitation card samples on display" },
-  { image: "", alt: "Traditional wedding card designs at the store" },
-  { image: "", alt: "Customers browsing invitation designs at Chandan Cards" },
-  { image: "", alt: "Luxury wedding invitation samples, Chandan Cards Jamshedpur" },
-  { image: "", alt: "Event planning showcase at Chandan Cards & Wedding Planner" },
-  { image: "", alt: "Invitation card shelves at the Sakchi shop" },
-  { image: "", alt: "Wedding stationery collection at Chandan Cards" },
-  { image: "", alt: "Chandan Cards & Wedding Planner store interior" }
+  { image: "images/gallery/g-01.jpg", alt: "Chandan Cards & Wedding Planner shop front in Sakchi, Jamshedpur" },
+  { image: "images/gallery/g-02.jpg", alt: "Wedding card display inside Chandan Cards, Sakchi" },
+  { image: "images/gallery/g-03.jpg", alt: "Collection of wedding invitation cards at Chandan Cards" },
+  { image: "images/gallery/g-04.jpg", alt: "Premium invitation card samples on display" },
+  { image: "images/gallery/g-05.jpg", alt: "Traditional wedding card designs at the store" },
+  { image: "images/gallery/g-06.jpg", alt: "Customers browsing invitation designs at Chandan Cards" },
+  { image: "images/gallery/g-07.jpg", alt: "Luxury wedding invitation samples, Chandan Cards Jamshedpur" },
+  { image: "images/gallery/g-08.jpg", alt: "Event planning showcase at Chandan Cards & Wedding Planner" },
+  { image: "images/gallery/g-09.jpg", alt: "Invitation card shelves at the Sakchi shop" },
+  { image: "images/gallery/g-10.jpg", alt: "Wedding stationery collection at Chandan Cards" },
+  { image: "images/gallery/g-11.jpg", alt: "Chandan Cards & Wedding Planner store interior" }
 ];
 
 /* =====================================

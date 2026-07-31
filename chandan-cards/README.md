@@ -19,33 +19,44 @@ Deploy the `chandan-cards/` folder to any static host (GitHub Pages, Netlify, Ve
 
 ---
 
-## ⭐ How to add your card images (IMPORTANT)
+## ⭐ How the card images work (IMPORTANT)
 
-Open **`js/data.js`**. Every card entry looks like this:
+Card photos live in **`images/cards/`** and are named after their card ID:
+
+```
+images/cards/CC-001.jpg   → Royal Jharokha Wedding Card
+images/cards/CC-002.jpg   → Vintage Rose Ganesha Card
+...
+images/cards/CC-015.jpg   → Shubh Aarambh Radha Krishna Card
+```
+
+See **`images/cards/README.md`** for the full photo-to-ID mapping table.
+
+Shop/business photos live in **`images/gallery/`** as `g-01.jpg` … `g-11.jpg`.
+
+Every card entry in `js/data.js` looks like this:
 
 ```js
 {
   id: "CC-001",
-  title: "Royal Wedding Invitation",
-  category: "Wedding",
-  image: "",           // ← PASTE THE DIRECT IMAGE URL HERE
-  download: "",        // ← optional: separate high-quality file URL
-  description: "Elegant traditional wedding invitation...",
-  tags: ["Wedding", "Traditional", "Royal"],
+  title: "Royal Jharokha Wedding Card",
+  category: "Luxury",
+  image: "images/cards/CC-001.jpg",
+  download: "",        // optional: separate high-quality file URL
+  description: "Lattice-cut jharokha style cover...",
+  tags: ["Wedding", "Royal", "Traditional", "Luxury"],
   featured: true       // true = also shown in "Featured" section
 }
 ```
 
-1. Paste each of the **15 wedding-card image URLs** into the matching card's `image` field.
-2. Paste each of the **11 shop photo URLs** into `galleryImages` (same file, lower down).
-3. Rename titles/categories if you like — everything updates automatically.
-
-Until a URL is added, the site shows an elegant **"Card Preview Unavailable"** placeholder
-instead of a broken image, so nothing ever looks broken.
+Until an image file exists, the site shows an elegant **"Card Preview Unavailable"**
+placeholder instead of a broken image, so nothing ever looks broken.
 
 ### Adding a NEW card later
 
-Copy any block, give it the next ID (`CC-016`, `CC-017`, …), paste the image URL — done.
+1. Save the photo as `images/cards/CC-016.jpg` (next free ID).
+2. Copy any block in `js/data.js`, set `id: "CC-016"` and `image: "images/cards/CC-016.jpg"`.
+
 Search, filters, modal, download and WhatsApp all pick it up automatically.
 
 ---
