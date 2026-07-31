@@ -167,6 +167,19 @@ export const FEATURES = [
   },
 ];
 
+// Gallery photos. Replace the files in public/images/ (same names) with your
+// real photos, and edit the labels here if needed.
+export const GALLERY = [
+  { src: '/images/gallery-1.jpg', label: 'Our Computer Lab' },
+  { src: '/images/gallery-2.jpg', label: 'Classroom Training' },
+  { src: '/images/gallery-3.jpg', label: 'Programming Sessions' },
+  { src: '/images/gallery-4.jpg', label: 'Accounting & Tally' },
+  { src: '/images/gallery-5.jpg', label: 'Designing Work' },
+  { src: '/images/gallery-6.jpg', label: 'Certificates & Success' },
+  { src: '/images/gallery-7.jpg', label: 'Campus Life' },
+  { src: '/images/gallery-8.jpg', label: 'Students at Work' },
+];
+
 export const STEPS = [
   {
     no: '01',

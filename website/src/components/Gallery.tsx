@@ -1,17 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
-
-const IMAGES = [
-  { src: '/images/lab.jpg', label: 'Modern Computer Lab' },
-  { src: '/images/training.jpg', label: 'Expert Classroom Training' },
-  { src: '/images/course-coding.jpg', label: 'Programming Lab' },
-  { src: '/images/about.jpg', label: 'Happy Students' },
-  { src: '/images/course-tally.jpg', label: 'Accounting & Tally' },
-  { src: '/images/course-design.jpg', label: 'Design Studio' },
-  { src: '/images/success.jpg', label: 'Certificate & Placements' },
-  { src: '/images/hero.jpg', label: 'Campus Life' },
-];
+import { GALLERY as IMAGES } from '../data/site';
 
 // bento-ish layout classes
 const SPAN = [

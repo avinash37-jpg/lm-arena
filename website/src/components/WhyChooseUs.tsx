@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
             </p>
 
             <div className="mt-8 hidden overflow-hidden rounded-3xl border border-white/10 shadow-2xl lg:block">
-              <img src="/images/lab.jpg" alt="IACT 2 computer lab" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img src="/images/gallery-1.jpg" alt="IACT 2 computer lab" className="aspect-[4/3] w-full object-cover" loading="lazy" />
             </div>
           </div>
 

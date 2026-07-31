@@ -131,7 +131,7 @@ export default function Hero() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
                 <img
-                  src="/images/training.jpg"
+                  src="/images/about.jpg"
                   alt="Students learning computers at IACT 2"
                   className="aspect-[4/5] w-full object-cover"
                   loading="lazy"
