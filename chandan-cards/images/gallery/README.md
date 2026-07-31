@@ -14,7 +14,7 @@ The website (js/data.js → galleryImages) picks them up automatically.
 | g-07.jpg | Card sample — red card with gold foil Ganesha, peacock motif and temple border |
 | g-08.jpg | Card samples — silver/ivory lattice-cut "Wedding Invitation" cards with gold panel (held in hand) |
 | g-09.jpg | Card sample — blush floral "Wedding Invitation … Ajay weds Priyanka" rose-gold card in packaging |
-| g-10.jpg | Card sample — classic red textured "Shubh Vivah" card with silver scroll and gold Ganesha corner |
-| g-11.jpg | Card sample — bright red invitation with golden cord/tassel next to patterned fabric |
+| g-10.jpg | (reserved — upload later and re-add in js/data.js) |
+| g-11.jpg | (reserved — upload later and re-add in js/data.js) |
 
 JPG or PNG both work — if you keep .png, update the extensions in js/data.js.

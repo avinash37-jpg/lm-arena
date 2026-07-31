@@ -156,17 +156,6 @@ const cardSamples = [
     featured: false
   },
   {
-    id: "CC-011",
-    title: "Pearl Leaf Elegance Card",
-    category: "Minimal",
-    image: "images/cards/CC-011.jpg",
-    download: "",
-    description:
-      "Ivory card with silvery-lilac leaf sprays, corner rose garlands and a jewelled Ganesha medallion — quietly luxurious.",
-    tags: ["Wedding", "Minimal", "Elegant", "Ganesha", "Pastel", "Ivory"],
-    featured: false
-  },
-  {
     id: "CC-012",
     title: "Baraat Procession Invitation",
     category: "Traditional",
@@ -274,14 +263,6 @@ const galleryImages = [
   {
     image: "images/gallery/g-09.jpg",
     alt: "Floral rose-gold wedding invitation sample at Chandan Cards"
-  },
-  {
-    image: "images/gallery/g-10.jpg",
-    alt: "Classic red Shubh Vivah wedding card sample at Chandan Cards"
-  },
-  {
-    image: "images/gallery/g-11.jpg",
-    alt: "Red wedding invitation with golden cord detail at Chandan Cards"
   }
 ];
 

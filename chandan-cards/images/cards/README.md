@@ -15,7 +15,7 @@ The website picks them up automatically (js/data.js → images/cards/CC-0XX.jpg)
 | CC-008.jpg | Radha Krishna Clouds Invitation | Blush card, gold-foil Radha Krishna in clouds, peacock pillar, rose monogram |
 | CC-009.jpg | Pichwai Heritage Wedding Card | Pichwai-art Radha Krishna, temple arches, cows ("Aadhya weds Aahan" box behind) |
 | CC-010.jpg | Garden Ribbon Laser-Cut Card | Peach card, dahlia flowers, green ribbon, insert + names laser cut at bottom |
-| CC-011.jpg | Pearl Leaf Elegance Card | Ivory card, silvery-lilac leaves, corner pink roses, jewelled Ganesha medallion |
+| CC-011.jpg | (reserved — photo not yet uploaded; re-add the entry in js/data.js when you upload it) | |
 | CC-012.jpg | Baraat Procession Invitation | White jaali balcony, elephants & baraat procession on both sides, Ganesha medallion |
 | CC-013.jpg | Royal Couple Portrait Card | White/mauve card, royal couple portrait, palace arches, roses, gold Ganesha crest |
 | CC-014.jpg | Golden Emboss Classic Card | Peach embossed card, gold cross-jaal pattern, black & gold calligraphy medallion |
