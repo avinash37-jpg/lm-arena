@@ -233,21 +233,56 @@ const cardCategories = [
 
 /* =====================================
    3. BUSINESS / SHOP GALLERY PHOTOS
-   PASTE the 11 shop photo URLs into `image` below.
+   Save the 11 shop photos into  images/gallery/  using the
+   filenames below (see images/gallery/README.md for the
+   photo-to-filename mapping table).
    `alt` is used for accessibility & SEO.
    ===================================== */
 const galleryImages = [
-  { image: "images/gallery/g-01.jpg", alt: "Chandan Cards & Wedding Planner shop front in Sakchi, Jamshedpur" },
-  { image: "images/gallery/g-02.jpg", alt: "Wedding card display inside Chandan Cards, Sakchi" },
-  { image: "images/gallery/g-03.jpg", alt: "Collection of wedding invitation cards at Chandan Cards" },
-  { image: "images/gallery/g-04.jpg", alt: "Premium invitation card samples on display" },
-  { image: "images/gallery/g-05.jpg", alt: "Traditional wedding card designs at the store" },
-  { image: "images/gallery/g-06.jpg", alt: "Customers browsing invitation designs at Chandan Cards" },
-  { image: "images/gallery/g-07.jpg", alt: "Luxury wedding invitation samples, Chandan Cards Jamshedpur" },
-  { image: "images/gallery/g-08.jpg", alt: "Event planning showcase at Chandan Cards & Wedding Planner" },
-  { image: "images/gallery/g-09.jpg", alt: "Invitation card shelves at the Sakchi shop" },
-  { image: "images/gallery/g-10.jpg", alt: "Wedding stationery collection at Chandan Cards" },
-  { image: "images/gallery/g-11.jpg", alt: "Chandan Cards & Wedding Planner store interior" }
+  {
+    image: "images/gallery/g-01.jpg",
+    alt: "Chandan Cards shop front at night with glowing sign, Refugee Market, Sakchi, Jamshedpur"
+  },
+  {
+    image: "images/gallery/g-02.jpg",
+    alt: "Daytime view of Chandan Cards & Wedding Planner storefront with card display windows, Sakchi"
+  },
+  {
+    image: "images/gallery/g-03.jpg",
+    alt: "Wedding card sample display wall inside Chandan Cards, Sakchi"
+  },
+  {
+    image: "images/gallery/g-04.jpg",
+    alt: "Card catalogue counter with organised sample boxes at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-05.jpg",
+    alt: "Booking desk and lit card display cabinets inside Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-06.jpg",
+    alt: "Wedding planning and event decoration showcase lounge at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-07.jpg",
+    alt: "Red and gold Ganesha wedding card sample at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-08.jpg",
+    alt: "Silver and gold lattice-cut wedding invitation samples at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-09.jpg",
+    alt: "Floral rose-gold wedding invitation sample at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-10.jpg",
+    alt: "Classic red Shubh Vivah wedding card sample at Chandan Cards"
+  },
+  {
+    image: "images/gallery/g-11.jpg",
+    alt: "Red wedding invitation with golden cord detail at Chandan Cards"
+  }
 ];
 
 /* =====================================
