@@ -1,36 +1,35 @@
-import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Stats from './components/Stats';
 import About from './components/About';
+import Courses from './components/Courses';
+import WhyChooseUs from './components/WhyChooseUs';
 import Gallery from './components/Gallery';
-import Menu from './components/Menu';
-import DrinksCarousel from './components/DrinksCarousel';
-import Events from './components/Events';
-import VideoGallery from './components/VideoGallery';
-import GoogleReviews from './components/GoogleReviews';
-import InstagramFeed from './components/InstagramFeed';
+import Admissions from './components/Admissions';
+import Testimonials from './components/Testimonials';
+import Faq from './components/Faq';
 import LocationContact from './components/LocationContact';
 import Footer from './components/Footer';
-import InactivityModal from './components/InactivityModal';
+import FloatingActions from './components/FloatingActions';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-gray-200">
+    <div className="min-h-screen bg-[#060a18] text-slate-200">
       <Navbar />
       <main>
         <Hero />
+        <Stats />
         <About />
+        <Courses />
+        <WhyChooseUs />
+        <Admissions />
         <Gallery />
-        <VideoGallery />
-        <Menu />
-        <DrinksCarousel />
-        <Events />
-        <GoogleReviews />
-        <InstagramFeed />
+        <Testimonials />
+        <Faq />
         <LocationContact />
       </main>
       <Footer />
-      <InactivityModal />
+      <FloatingActions />
     </div>
   );
 }

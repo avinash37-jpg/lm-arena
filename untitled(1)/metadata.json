@@ -1,6 +1,6 @@
 {
-  "name": "Levernasia Bar & Club",
-  "description": "Premier nightlife, luxury dining, and cocktail lounge experience at Gardens Galleria Mall, Noida with live DJ nights, gourmet food, signature libations, and instant VIP WhatsApp table reservations.",
+  "name": "IACT 2 Computers Education",
+  "description": "Demo website for IACT 2 Computers Education, a computer training institute in Phuldungri, Ghatshila, Jharkhand. Showcases courses (DCA, ADCA, Tally Prime + GST, MS Office, Web Designing, Programming, DTP, CCC, Data Entry), about, gallery, student reviews, an admission enquiry form that sends via WhatsApp, and a contact/location section with Google Maps.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
