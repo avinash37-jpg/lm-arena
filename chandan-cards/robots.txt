@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update with the final domain after deployment:
+# Sitemap: https://YOUR-DOMAIN.vercel.app/sitemap.xml
