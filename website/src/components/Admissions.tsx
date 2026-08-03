@@ -32,7 +32,7 @@ export default function Admissions() {
               ● Admission Open
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-              Start Your Computer Journey <span className="text-gradient">in 4 Easy Steps</span>
+              Start Your Coaching Journey <span className="text-gradient">in 4 Easy Steps</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-400">
               New batches starting now! Reserve your seat today. Fill the quick form and we'll reach out with all

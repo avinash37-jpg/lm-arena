@@ -4,7 +4,7 @@ import { SITE } from '../data/site';
 
 const POINTS = [
   'Trusted local institute since ' + SITE.established,
-  'Modern lab with one computer per student',
+  'Modern study centre with one student per bench',
   'Friendly, qualified & experienced trainers',
   'Recognised certificate on completion',
   'Flexible morning, afternoon & evening batches',
@@ -15,12 +15,12 @@ const CARDS = [
   {
     icon: Target,
     title: 'Our Mission',
-    text: 'To make quality computer education affordable and accessible to every student in Ghatshila and nearby areas, empowering them with job-ready digital skills.',
+    text: 'To make quality coaching affordable and accessible to every student in Tata, Chaibasa and nearby areas, empowering them with exam success and career growth.',
   },
   {
     icon: Eye,
     title: 'Our Vision',
-    text: 'To be the most trusted computer education centre in the region, shaping confident, skilled and employable youth for a digital future.',
+    text: "To be Tata's most trusted coaching centre, guiding students to board exam success and bright futures.",
   },
   {
     icon: Heart,
@@ -44,8 +44,8 @@ export default function About() {
           >
             <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
               <img
-                src="/images/about.jpg"
-                alt="About IACT 2 Computers Education"
+                src="https://i.ibb.co/GN22mDR/Screenshot-2026-07-31-151250.png"
+                alt="About SMART Coaching Center"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
@@ -59,7 +59,7 @@ export default function About() {
                 </span>
                 <div>
                   <div className="font-display text-lg font-bold text-white">Recognised Institute</div>
-                  <div className="text-xs text-slate-400">Serving Ghatshila since {SITE.established}</div>
+                  <div className="text-xs text-slate-400">Serving Tata since {SITE.established}</div>
                 </div>
               </div>
             </div>
@@ -76,16 +76,16 @@ export default function About() {
               About Us
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Ghatshila's Trusted Computer <span className="text-gradient">Education Centre</span>
+              Tata's Trusted <span className="text-gradient">Coaching Centre</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-slate-300">
-              <span className="font-semibold text-white">{SITE.name}</span> is a premier computer training
+              <span className="font-semibold text-white">{SITE.name}</span> is a premier Coaching training
               institute located in {SITE.addressLine1}, {SITE.addressLine2}. For over a decade we have helped
-              thousands of students — from school dropouts to college graduates — master essential computer
+              thousands of students — from school dropouts to college graduates — master board subjects and build
               skills and build successful careers.
             </p>
             <p className="mt-3 text-base leading-relaxed text-slate-400">
-              From basic computer courses to advanced diplomas, accounting, programming and design, we focus on
+              From Class 6 to 12 coaching, board exam preparation and career guidance, we focus on
               one thing: <span className="font-semibold text-white">practical, job-ready training</span> that
               truly makes a difference.
             </p>

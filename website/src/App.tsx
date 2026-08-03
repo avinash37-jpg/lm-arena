@@ -11,10 +11,11 @@ import Faq from './components/Faq';
 import LocationContact from './components/LocationContact';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import Teachers from './components/Teachers';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#060a18] text-slate-200">
+    <div className="min-h-screen bg-[#0a0f1e] text-slate-200">
       <Navbar />
       <main>
         <Hero />
@@ -27,6 +28,7 @@ export default function App() {
         <Testimonials />
         <Faq />
         <LocationContact />
+      <Teachers />
       </main>
       <Footer />
       <FloatingActions />

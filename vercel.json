@@ -1,9 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": "chandan-cards",
+  "framework": "vite",
+  "buildCommand": "cd website && npm run build",
+  "installCommand": "cd website && npm install",
+  "outputDirectory": "website/dist",
+  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {

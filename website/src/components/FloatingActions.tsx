@@ -18,7 +18,7 @@ export default function FloatingActions() {
       <div className="fixed bottom-5 right-4 z-50 flex flex-col gap-3 sm:bottom-6 sm:right-6">
         <a
           href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-            'Hi IACT 2 Computers Education, I would like to know more about your courses.'
+            'Hi SMART Coaching Center, I would like to know more about your coaching courses and batches.'
           )}`}
           target="_blank"
           rel="noreferrer"

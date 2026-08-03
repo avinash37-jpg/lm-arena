@@ -44,10 +44,10 @@ export default function Courses() {
             Our Courses
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-            Job-Oriented <span className="text-gradient">Computer Courses</span> for Every Goal
+            Job-Oriented <span className="text-gradient">Coaching Courses</span> for Every Goal
           </h2>
           <p className="mt-4 text-base text-slate-400">
-            From your first computer lesson to advanced professional skills — choose a course and start your
+            From your first Coaching lesson to advanced professional skills — choose a course and start your
             journey to a successful career.
           </p>
         </div>

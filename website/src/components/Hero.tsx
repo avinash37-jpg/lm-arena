@@ -10,8 +10,8 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero.jpg"
-          alt="IACT 2 computer training classroom"
+          src="https://i.ibb.co/99DTgnst/Screenshot-2026-07-31-151240.png"
+          alt="SMART Coaching Center classroom"
           className="h-full w-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -37,7 +37,7 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
               </span>
-              Govt. Recognised Computer Institute • Ghatshila
+              Top Coaching Institute • Tata, Chaibasa Main Road
             </motion.div>
 
             <motion.h1
@@ -46,7 +46,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
             >
-              Build Your Future with <span className="text-gradient">Computer Education</span> That Gets You Hired
+              Build Your Future with <span className="text-gradient">Coaching</span> That Wins Exams
             </motion.h1>
 
             <motion.p
@@ -55,9 +55,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg"
             >
-              Join <span className="font-semibold text-white">{SITE.name}</span> — {SITE.addressLine1}'s trusted
-              computer training centre. Learn DCA, ADCA, Tally Prime with GST, MS Office, Web Designing,
-              Programming & more with 100% practical training.
+              Join <span className="font-semibold text-white">{SITE.name}</span> — a premier coaching centre at {SITE.addressLine1}. Board exam coaching for Class 6 to 12 with expert faculty, small batches and regular tests.
             </motion.p>
 
             <motion.div
@@ -67,7 +65,7 @@ export default function Hero() {
               className="mt-7 flex flex-wrap gap-2.5"
             >
               <span className={PILL}>🎓 Recognised Certificate</span>
-              <span className={PILL}>💻 One PC Per Student</span>
+              <span className={PILL}>📚 Small Batch Learning</span>
               <span className={PILL}>💼 Placement Support</span>
             </motion.div>
 
@@ -116,7 +114,7 @@ export default function Hero() {
                     <span key={i}>{s}</span>
                   ))}
                 </div>
-                <span className="text-xs">Trusted by 5000+ students in Ghatshila</span>
+                <span className="text-xs">Trusted by 3500+ students in Tata • Chaibasa</span>
               </div>
             </motion.div>
           </div>
@@ -131,8 +129,8 @@ export default function Hero() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
                 <img
-                  src="/images/about.jpg"
-                  alt="Students learning computers at IACT 2"
+                  src="https://i.ibb.co/GN22mDR/Screenshot-2026-07-31-151250.png"
+                  alt="Students learning at SMART Coaching Center"
                   className="aspect-[4/5] w-full object-cover"
                   loading="lazy"
                 />

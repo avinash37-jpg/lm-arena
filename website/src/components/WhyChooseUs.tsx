@@ -14,15 +14,15 @@ export default function WhyChooseUs() {
               Why Choose Us
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-              Why Students <span className="text-gradient">Choose IACT 2</span>
+              Why Students <span className="text-gradient">Choose SMART</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-slate-400">
-              We don't just teach computers — we build careers. Here's what makes us the most trusted computer
-              education centre in Ghatshila.
+              We don't just teach Coachings — we build careers. Here's what makes us the most trusted Coaching
+              coaching centre in Tata, Chaibasa Main Road.
             </p>
 
             <div className="mt-8 hidden overflow-hidden rounded-3xl border border-white/10 shadow-2xl lg:block">
-              <img src="/images/gallery-1.jpg" alt="IACT 2 computer lab" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <img src="https://i.ibb.co/CKPTrhjr/Screenshot-2026-07-31-151228.png" alt="SMART Coaching Center lab" className="aspect-[4/3] w-full object-cover" loading="lazy" />
             </div>
           </div>
 

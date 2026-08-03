@@ -19,6 +19,7 @@ export default function Navbar() {
     { name: 'About', href: '#about' },
     { name: 'Courses', href: '#courses' },
     { name: 'Why Us', href: '#features' },
+    { name: 'Teachers', href: '#teachers' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Reviews', href: '#reviews' },
     { name: 'Contact', href: '#contact' },
@@ -63,18 +64,18 @@ export default function Navbar() {
           <a href="#home" className="flex items-center gap-2.5 py-1" title={SITE.name}>
             <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-brand-600 to-cyan-400 shadow-[0_0_25px_-5px_rgba(37,99,235,0.7)]">
               <img
-                src="/images/logo-mark.png"
-                alt="IACT 2 logo"
+                src="https://i.ibb.co/0pJpVt34/Whats-App-Image-2026-08-01-at-11-44-56-PM.jpg"
+                alt="SMART Coaching Center logo"
                 className="h-full w-full object-cover"
                 loading="eager"
               />
             </div>
             <div className="leading-tight">
               <span className="block font-display text-base font-bold tracking-tight text-white">
-                IACT <span className="text-gradient">2</span>
+                SMART <span className="text-gradient">COACHING</span>
               </span>
               <span className="block text-[10px] font-medium uppercase tracking-[0.18em] text-slate-400">
-                Computers Education
+                Coachings Education
               </span>
             </div>
           </a>

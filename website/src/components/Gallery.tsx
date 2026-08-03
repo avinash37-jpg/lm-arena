@@ -30,7 +30,7 @@ export default function Gallery() {
             <Camera size={13} /> Gallery
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
-            A Glimpse of <span className="text-gradient">Life at IACT 2</span>
+            A Glimpse of <span className="text-gradient">Life at SMART</span>
           </h2>
           <p className="mt-4 text-base text-slate-400">
             Modern labs, focused students and a friendly learning environment. Tap any photo to view it larger.

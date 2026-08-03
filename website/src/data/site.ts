@@ -2,22 +2,22 @@
 // Edit values here to update the whole site.
 
 export const SITE = {
-  name: 'IACT 2 Computers Education',
-  shortName: 'IACT 2',
-  tagline: 'Computer Education Centre',
-  phoneDisplay: '080925 76269',
-  phoneRaw: '+918092576269', // for tel: links (drop leading 0, add +91)
-  whatsapp: '918092576269', // for wa.me links
-  email: 'iact2computers@gmail.com',
-  addressLine1: 'Phuldungri, Ghatshila',
-  addressLine2: 'Jharkhand 832303',
-  addressFull: 'Phuldungri, Ghatshila, Jharkhand 832303',
-  mapsLink: 'https://maps.app.goo.gl/H19HUGiC8LkqbVzE6',
+  name: 'SMART COACHING CENTER',
+  shortName: 'SMART',
+  tagline: 'Excellence in Coaching • Competitive Exams & Academic Success',
+  phoneDisplay: '08294103209',
+  phoneRaw: '+918294103209', // for tel: links (drop leading 0, add +91)
+  whatsapp: '918294103209', // for wa.me links
+  email: 'contact@smartcoaching.in',
+  addressLine1: 'Tata, Chaibasa Main Road',
+  addressLine2: 'Gamdesai, Jharkhand 832113',
+  addressFull: 'Tata, Chaibasa Main Road, Gamdesai, Jharkhand 832113',
+  mapsLink: 'https://maps.app.goo.gl/pVwbVTqwLuSpWCgh8',
   mapsEmbed:
-    'https://www.google.com/maps?q=Phuldungri,Ghatshila,Jharkhand%20832303&output=embed',
-  hours: 'Mon – Sat: 8:00 AM – 7:00 PM',
-  hoursSunday: 'Sunday: 9:00 AM – 2:00 PM',
-  established: 2015,
+    'https://www.google.com/maps?q=Tata,+Chaibasa+Main+Road,+Gamdesai,+Jharkhand+832113&t=&z=15&ie=UTF8&iwloc=&output=embed',
+  hours: 'Mon – Sat: 7:00 AM – 8:00 PM',
+  hoursSunday: 'Sunday: 8:00 AM – 2:00 PM',
+  established: 2010,
 };
 
 export type Course = {
@@ -33,226 +33,176 @@ export type Course = {
 
 export const COURSES: Course[] = [
   {
-    title: 'DCA – Diploma in Computer Applications',
-    code: 'DCA',
-    duration: '6 Months',
+    title: 'Class 6th & 7th — All Subjects (JAC / CBSE)',
+    code: 'CLASS-6-7',
+    duration: 'Ongoing Batch',
     level: 'Foundation',
-    description:
-      'A complete foundation in computers — from operating systems to office tools and the internet. Perfect first step into the digital world.',
-    topics: ['Fundamentals of Computer', 'Windows OS', 'MS Office', 'Internet & Email', 'Typing'],
-    icon: 'MonitorSmartphone',
+    description: 'Complete coaching for Class 6th and 7th covering all JAC and CBSE board subjects with regular tests and revision.',
+    topics: ['Mathematics', 'Science', 'Social Studies', 'English', 'Hindi'],
+    icon: 'BookOpen',
     popular: true,
   },
   {
-    title: 'ADCA – Advanced Diploma in Computer Applications',
-    code: 'ADCA',
-    duration: '1 Year',
+    title: 'Board Exam Special — 8th, 9th, 10th (JAC & CBSE)',
+    code: 'BOARD-8-10',
+    duration: 'Full Year Program',
+    level: 'Board Focused',
+    description: 'Dedicated board exam coaching for 8th, 9th and 10th with JAC & CBSE syllabus, previous year papers and revision classes.',
+    topics: ['Math', 'Science', 'Social Studies', 'English', 'Hindi', 'Board Practice'],
+    icon: 'Award',
+    popular: true,
+  },
+  {
+    title: 'Arts & Science — 11th & 12th All Subjects',
+    code: 'ARS-SCI-11-12',
+    duration: '2 Year Program',
     level: 'Advanced',
-    description:
-      'An in-depth advanced diploma covering office automation, accounting, designing and an introduction to programming for a full IT career.',
-    topics: ['All DCA Modules', 'Tally Prime + GST', 'DTP & Photoshop', 'Basic Programming', 'Project Work'],
+    description: 'Full coaching for Arts and Science streams in 11th and 12th covering all board subjects with exam-oriented teaching.',
+    topics: ['Physics / Chemistry', 'Mathematics', 'Biology', 'History / Geography', 'English & Hindi', 'Board Prep'],
     icon: 'GraduationCap',
     popular: true,
   },
-  {
-    title: 'Tally Prime with GST',
-    code: 'TALLY',
-    duration: '3 Months',
-    level: 'Job-Oriented',
-    description:
-      'Master modern accounting with Tally Prime — company setup, inventory, vouchers, payroll and complete GST filing. Highly in demand.',
-    topics: ['Accounting Basics', 'Tally Prime', 'GST & TDS', 'Payroll', 'Banking & Reports'],
-    icon: 'Calculator',
-    popular: true,
-  },
-  {
-    title: 'MS Office Specialist',
-    code: 'MS-OFFICE',
-    duration: '3 Months',
-    level: 'Foundation',
-    description:
-      'Become fluent in Word, Excel, PowerPoint & Outlook — the essential office productivity skills every employer looks for.',
-    topics: ['MS Word', 'MS Excel (Adv.)', 'MS PowerPoint', 'MS Access', 'Outlook'],
-    icon: 'FileSpreadsheet',
-  },
-  {
-    title: 'Web Designing & Development',
-    code: 'WEB',
-    duration: '6 Months',
-    level: 'Advanced',
-    description:
-      'Design and build modern websites from scratch — HTML, CSS, JavaScript and responsive design with live projects.',
-    topics: ['HTML5 & CSS3', 'JavaScript', 'Bootstrap', 'WordPress', 'Live Project'],
-    icon: 'Code2',
-  },
-  {
-    title: 'Programming (C, C++, Python)',
-    code: 'PROG',
-    duration: '4 Months',
-    level: 'Advanced',
-    description:
-      'Learn the logic of coding with C and C++, then step into Python — the world’s most popular and versatile language.',
-    topics: ['C Programming', 'C++ (OOPs)', 'Python Basics', 'Mini Projects', 'Logic Building'],
-    icon: 'Binary',
-  },
-  {
-    title: 'DTP – Desktop Publishing',
-    code: 'DTP',
-    duration: '3 Months',
-    level: 'Creative',
-    description:
-      'Create stunning print & digital designs — posters, brochures, banners and logos using CorelDRAW and Photoshop.',
-    topics: ['CorelDRAW', 'Adobe Photoshop', 'PageMaker', 'Printing Basics', 'Portfolio'],
-    icon: 'Palette',
-  },
-  {
-    title: 'CCC – Course on Computer Concepts',
-    code: 'CCC',
-    duration: '3 Months',
-    level: 'Govt. Certified',
-    description:
-      'Government-recognised certification covering all the essential computer concepts required for many jobs and exams.',
-    topics: ['Computer Concepts', 'OS & GUI', 'Word & Excel', 'Internet', 'Digital Payments'],
-    icon: 'BadgeCheck',
-  },
-  {
-    title: 'Typing & Data Entry Operator',
-    code: 'DEO',
-    duration: '2 Months',
-    level: 'Foundation',
-    description:
-      'Build blazing typing speed in Hindi & English and master professional data entry for office and government jobs.',
-    topics: ['English Typing', 'Hindi Typing', 'Data Entry', 'Form Filling', 'Speed Tests'],
-    icon: 'Keyboard',
-  },
 ];
-
 export const STATS = [
-  { value: 5000, suffix: '+', label: 'Students Trained' },
-  { value: 12, suffix: '+', label: 'Years of Experience' },
-  { value: 25, suffix: '+', label: 'Professional Courses' },
-  { value: 98, suffix: '%', label: 'Placement Support' },
+  { value: 3500, suffix: '+', label: 'Students Trained' },
+  { value: 15, suffix: '+', label: 'Years of Experience' },
+  { value: 20, suffix: '+', label: 'Coaching Programs' },
+  { value: 95, suffix: '%', label: 'Success Rate' },
 ];
 
 export const FEATURES = [
   {
-    icon: 'BadgeCheck',
-    title: 'Govt. Recognised Certificates',
-    text: 'Valid, recognised certification that adds real value to your CV and is accepted by employers.',
+    icon: 'ShieldCheck',
+    title: 'Exam-Focused Curriculum',
+    text: 'Every module is designed around actual exam patterns — past papers, expected questions and scoring strategies.',
   },
   {
     icon: 'Users',
     title: 'Experienced Faculty',
-    text: 'Learn from friendly, qualified trainers who give every student personal attention and guidance.',
+    text: 'Learn from coaches who have years of exam-prep experience and understand exactly what students need to succeed.',
   },
   {
-    icon: 'MonitorSmartphone',
-    title: 'Modern Computer Lab',
-    text: 'One-student-one-computer practice on the latest systems and updated software.',
+    icon: 'FileText',
+    title: 'Modern Study Material',
+    text: 'Get updated notes, practice books, online resources and video recordings for revision anytime, anywhere.',
   },
   {
-    icon: 'Briefcase',
-    title: 'Placement Assistance',
-    text: 'Dedicated career support, interview prep and job referrals to help you get hired.',
+    icon: 'ClipboardCheck',
+    title: 'Regular Mock Tests',
+    text: 'Weekly full-length mock tests with detailed analysis, ranking and personalized feedback to track progress.',
   },
   {
-    icon: 'IndianRupee',
+    icon: 'UserCheck',
+    title: 'Small Batch Sizes',
+    text: 'Limited seats per batch so every student gets individual attention, quick doubt solving and closer mentoring.',
+  },
+  {
+    icon: 'Wallet',
     title: 'Affordable Fees',
-    text: 'Quality computer education at honest, budget-friendly fees with easy instalment options.',
-  },
-  {
-    icon: 'Wrench',
-    title: '100% Practical Training',
-    text: 'Learn by doing — real projects, hands-on practice and real-world skills, not just theory.',
+    text: 'Quality coaching at honest, budget-friendly fees with easy monthly instalments so learning is never a burden.',
   },
 ];
 
 // Gallery photos. Replace the files in public/images/ (same names) with your
 // real photos, and edit the labels here if needed.
+export const TEACHERS = [
+  { name: 'Lochan Sir', role: 'Owner & Founder', rank: 1, image: 'https://i.ibb.co/fVdxSyys/Whats-App-Image-2026-08-01-at-11-44-39-PM-1.jpg', bio: 'Founder of SMART Coaching Center. Over 15 years guiding students to success.' },
+  { name: 'Faculty Member 2', role: 'Senior Faculty', rank: 2, image: 'https://i.ibb.co/MkdT48j4/Whats-App-Image-2026-08-01-at-11-44-39-PM-2.jpg', bio: 'Expert in competitive exam mathematics and reasoning.' },
+  { name: 'Dukhuram Baskey', role: 'Senior Faculty', rank: 3, image: 'https://i.ibb.co/gBfqkdS/Whats-App-Image-2026-08-01-at-11-42-48-PM.jpg', bio: 'M.Sc (Chemistry)' },
+  { name: 'Payal Mam', role: 'Faculty', rank: 4, image: 'https://i.ibb.co/cXSNPfGm/Whats-App-Image-2026-08-01-at-11-44-58-PM-1.jpg', bio: 'B.Sc, Paramedical, Biology Specialist' },
+  { name: 'Sona Tudu', role: 'Faculty', rank: 5, image: 'https://i.ibb.co/qYvr5LfM/Whats-App-Image-2026-08-01-at-11-44-38-PM.jpg', bio: 'BA (Santhali)' },
+  { name: 'Sushanti Hembram', role: 'Faculty', rank: 6, image: 'https://i.ibb.co/8nn7yqf8/Whats-App-Image-2026-08-01-at-11-44-41-PM-1.jpg', bio: "Art's Special" },
+];
+
 export const GALLERY = [
-  { src: '/images/gallery-1.jpg', label: 'Our Computer Lab' },
-  { src: '/images/gallery-2.jpg', label: 'Classroom Training' },
-  { src: '/images/gallery-3.jpg', label: 'Programming Sessions' },
-  { src: '/images/gallery-4.jpg', label: 'Accounting & Tally' },
-  { src: '/images/gallery-5.jpg', label: 'Designing Work' },
-  { src: '/images/gallery-6.jpg', label: 'Certificates & Success' },
-  { src: '/images/gallery-7.jpg', label: 'Campus Life' },
-  { src: '/images/gallery-8.jpg', label: 'Students at Work' },
+  { src: 'https://i.ibb.co/CKPTrhjr/Screenshot-2026-07-31-151228.png', label: 'Smart Coaching — Group with Banner' },
+  { src: 'https://i.ibb.co/pv5cYSL1/Screenshot-2026-07-31-151218.png', label: 'Students & Faculty — Outdoor Batch' },
+  { src: 'https://i.ibb.co/p6TfYVTq/Screenshot-2026-07-31-151208.png', label: 'Close Group — Smart Coaching' },
+  { src: 'https://i.ibb.co/GN22mDR/Screenshot-2026-07-31-151250.png', label: 'Indoor Classroom Session' },
+  { src: 'https://i.ibb.co/99DTgnst/Screenshot-2026-07-31-151240.png', label: 'Centre Building & Signboard' },
+  { src: 'https://i.ibb.co/TDx7qkbh/Whats-App-Image-2026-08-01-at-11-44-58-PM.jpg', label: 'Coaching Session' },
+  { src: 'https://i.ibb.co/dsK4gFwS/Whats-App-Image-2026-08-01-at-11-44-57-PM.jpg', label: 'Student Guidance' },
+  { src: 'https://i.ibb.co/ymhv56zz/Whats-App-Image-2026-08-01-at-11-44-41-PM.jpg', label: 'Classroom Learning' },
+  { src: 'https://i.ibb.co/LD0MKkLp/Whats-App-Image-2026-08-01-at-11-44-40-PM.jpg', label: 'Exam Practice' },
+  { src: 'https://i.ibb.co/Nnyj7qB4/Whats-App-Image-2026-08-01-at-11-44-39-PM.jpg', label: 'Study Material' },
+  { src: 'https://i.ibb.co/6CWL2MJ/Whats-App-Image-2026-08-01-at-11-44-38-PM-1.jpg', label: 'Batch Learning' },
+  { src: 'https://i.ibb.co/23s1qmVL/Whats-App-Image-2026-08-01-at-11-44-37-PM.jpg', label: 'Interactive Class' },
+  { src: 'https://i.ibb.co/YBFF0tvg/Whats-App-Image-2026-08-01-at-11-44-36-PM.jpg', label: 'Success Moments' },
 ];
 
 export const STEPS = [
   {
     no: '01',
     title: 'Visit or Call Us',
-    text: 'Drop by our centre in Phuldungri or call 080925 76269. Our team helps you choose the right course.',
+    text: 'Drop by SMART Coaching Center on Chaibasa Main Road, Gamdesai or call 08294103209. We help you pick the right course.',
   },
   {
     no: '02',
     title: 'Free Counselling',
-    text: 'Get free expert counselling about courses, fees, duration and career opportunities.',
+    text: 'Get free expert counselling about exam targets, course duration, fees and the best batch schedule for you.',
   },
   {
     no: '03',
     title: 'Enroll & Start Learning',
-    text: 'Complete a simple admission and begin classes with flexible morning, afternoon & evening batches.',
+    text: 'Complete a simple admission and begin regular classes with flexible morning, afternoon and evening batches.',
   },
   {
     no: '04',
-    title: 'Get Certified & Placed',
-    text: 'Finish your course, earn your certificate and get placement assistance to start your career.',
+    title: 'Mock Tests, Revision & Results',
+    text: 'Take regular mock tests, attend revision classes and get result-focused guidance until you clear your exam.',
   },
 ];
 
 export const TESTIMONIALS = [
   {
-    name: 'Priya Kumari',
-    course: 'ADCA Graduate',
+    name: 'Ravi Kumar',
+    course: 'SSC & Railway Program',
     rating: 5,
-    text: 'IACT 2 is the best computer institute in Ghatshila. The teachers are very supportive and I learned Tally and MS Office with full practical work. I got a job right after my course!',
+    text: 'SMART Coaching changed my life. The teachers are very clear and the mock tests really helped me understand my weak points. I cleared SSC CGL in my first attempt!',
   },
   {
-    name: 'Rahul Mahato',
-    course: 'Tally Prime with GST',
+    name: 'Priya Singh',
+    course: 'Banking Exam Program',
     rating: 5,
-    text: 'Excellent teaching and a great computer lab. The GST and accounting training was very practical. Highly recommended for anyone who wants a real accounting job.',
+    text: 'The banking course is excellent. Study material is updated and faculties teach with real exam examples. I got selected for SBI Clerk thanks to SMART.',
   },
   {
-    name: 'Sneha Das',
-    course: 'Web Designing',
+    name: 'Ankit Das',
+    course: 'JEE Main & Advanced',
     rating: 5,
-    text: 'I came in knowing nothing about computers. Now I can design full websites! The faculty gives personal attention to every student. Thank you IACT 2.',
+    text: 'Best coaching for JEE in the Tata region. The physics and math classes are exceptional. The small batch size means I never hesitate to ask doubts.',
   },
   {
-    name: 'Aman Singh',
-    course: 'DCA Student',
+    name: 'Sunita Kumari',
+    course: 'NEET Program',
     rating: 5,
-    text: 'Affordable fees, friendly teachers and modern computers. The certificate is valid and helped me a lot. The best place in Phuldungri to learn computers.',
+    text: 'As a NEET aspirant, I needed strong biology and chemistry coaching. SMART provided both with regular tests and revision. Highly recommended!',
   },
 ];
 
 export const FAQS = [
   {
-    q: 'Where is IACT 2 Computers Education located?',
-    a: 'We are located in Phuldungri, Ghatshila, Jharkhand 832303. You can find us easily on Google Maps or call 080925 76269 for directions.',
+    q: 'Where is SMART Coaching Center located?',
+    a: 'We are located at Tata, Chaibasa Main Road, Gamdesai, Jharkhand 832113 — easily reachable from Tata and Chaibasa. You can find directions on our Google Maps link.',
   },
   {
-    q: 'Which courses do you offer?',
-    a: 'We offer DCA, ADCA, Tally Prime with GST, MS Office, Web Designing, Programming (C/C++/Python), DTP, CCC, Typing & Data Entry and many more job-oriented courses.',
+    q: 'Which exams and courses do you offer coaching for?',
+    a: 'We offer coaching for SSC, Railway, Banking, Insurance, JEE, NEET, General Studies, Mathematics, English, Hindi and Coaching Basics with typing. We also provide interview preparation.',
   },
   {
-    q: 'Do you provide a valid certificate after the course?',
-    a: 'Yes. We provide recognised certificates on successful completion of every course, which are valued by employers and useful for jobs.',
+    q: 'Do you provide study material and mock tests?',
+    a: 'Yes. Every student receives updated printed and digital study material. We conduct weekly full-length mock tests with detailed analysis and ranking.',
   },
   {
-    q: 'Are the fees affordable? Can I pay in instalments?',
-    a: 'Absolutely. Our course fees are budget-friendly and we offer easy instalment options so that money never comes in the way of your learning.',
+    q: 'What are the batch sizes and timings?',
+    a: 'We maintain small batches (max 20–25 students) for personal attention. Classes run from 7:00 AM to 8:00 PM on weekdays and 8:00 AM to 2:00 PM on Sunday.',
   },
   {
-    q: 'Do you offer placement assistance?',
-    a: 'Yes. We provide dedicated placement support, interview preparation and job referrals to help our students start their careers.',
+    q: 'Are the fees affordable? Is there a payment plan?',
+    a: 'Yes. Our fees are kept affordable for every family. We offer monthly instalments and easy payment options so you can focus on learning without financial stress.',
   },
   {
-    q: 'What are the class timings?',
-    a: 'We run flexible morning, afternoon and evening batches from Monday to Saturday (8:00 AM – 7:00 PM) and a special Sunday batch (9:00 AM – 2:00 PM).',
+    q: 'How can I enroll or ask more questions?',
+    a: 'Call 08294103209, send a WhatsApp message to the same number or visit our centre directly. We also have a quick enquiry form on this website for instant response.',
   },
 ];

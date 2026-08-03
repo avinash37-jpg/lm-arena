@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 py-10 text-center sm:px-6 lg:flex-row lg:px-8 lg:text-left">
           <div>
             <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
-              Ready to start your computer course?
+              Ready to start your coaching journey?
             </h3>
             <p className="mt-1.5 text-sm text-slate-400">
               New batches open now. Talk to us today and reserve your seat.
@@ -50,17 +50,17 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-brand-600 to-cyan-400">
-              <img src="/images/logo-mark.png" alt="IACT 2" className="h-full w-full object-cover" />
+              <img src="https://i.ibb.co/0pJpVt34/Whats-App-Image-2026-08-01-at-11-44-56-PM.jpg" alt="SMART Coaching Center" className="h-full w-full object-cover" />
             </div>
             <div className="leading-tight">
               <div className="font-display text-base font-bold text-white">
-                IACT <span className="text-gradient">2</span>
+                SMART <span className="text-gradient">COACHING</span>
               </div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-slate-400">Computers Education</div>
+              <div className="text-[10px] uppercase tracking-[0.18em] text-slate-400">Coaching Centre</div>
             </div>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-400">
-            {SITE.name} — {SITE.addressLine1}'s trusted computer training centre, helping students build
+            {SITE.name} — {SITE.addressLine1}'s trusted coaching centre, helping students succeed
             job-ready digital skills since {SITE.established}.
           </p>
           <div className="mt-5 flex gap-3">
@@ -158,7 +158,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
           <p className="text-xs text-slate-500">
-            Proudly serving students in Ghatshila, Jharkhand 🇮🇳
+            Proudly serving students in Tata, Chaibasa Main Road, Jharkhand 🇮🇳
           </p>
           <a
             href="#home"

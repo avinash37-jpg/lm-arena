@@ -104,7 +104,7 @@ export default function LocationContact() {
             className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
           >
             <iframe
-              title="IACT 2 Computers Education location map"
+              title="SMART Coaching Center location map"
               src={SITE.mapsEmbed}
               className="h-full min-h-[360px] w-full"
               loading="lazy"
